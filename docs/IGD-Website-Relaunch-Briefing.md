@@ -406,3 +406,15 @@ Lorenz jeden dieser Schritte in einfachen Worten erklären und Zugangsdaten **ni
 - Einwohnergemeinde Diessbach: https://www.diessbach.ch/ (Farben, Behörden)
 - Wahlergebnisse 25.10.2026: https://www.diessbach.ch/de/online-schalter/mitteilungen/meldungen/gesamterneuerungswahlen-2026-ergebinsse.php
 - Kampagnensujets 2026 (auf der bestehenden Startseite)
+
+---
+
+## 14. Nachträge und Entscheide während der Umsetzung
+
+| Datum | Entscheid |
+|---|---|
+| 1.11.2026 | **Hauptfarbe Blau statt Rot** (ersetzt Kap. 5.2). Blau aus dem Logo (`#2541C4`) ist die Vereinsfarbe und grenzt die IGD von der SP ab, die in der Schweiz traditionell rot auftritt. Rot war nur die Farbe der Wahlkampagne 2026 (abgeleitet vom Gemeindewappen). Anthrazit und Weiss bleiben. |
+| 1.11.2026 | Gründung laut Statuten: **Gründungsversammlung 31.1.2006**. Das Jubiläumsthema (20 Jahre im Jahr 2026 vs. HV 2027) ist vorerst pendent. |
+| 1.11.2026 | Mitgliederbeitrag **CHF 20.– pro Jahr**. Die Postadresse c/o Michaela Rodrigues-Udry darf publiziert werden. |
+| 1.11.2026 | Formulare gehen bis zum Go-live an Lorenz Gerber (Adresse nur in den Netlify-Einstellungen, nicht im Code). CMS-Pflege: Lorenz, Michaela, Helena. |
+| 1.11.2026 | Netlify bleibt für den Prototyp im Gratisabo (keine weiteren Team-Mitglieder). |

@@ -1,5 +1,5 @@
 ---
-/** Kopfbereich für Unterseiten: Anthrazit mit rotem Schrägband (wie Kampagne) */
+/** Kopfbereich für Unterseiten: Anthrazit mit blauem Schrägband */
 interface Props { titel: string; dachzeile?: string; lead?: string; }
 const { titel, dachzeile, lead } = Astro.props;
 ---
@@ -21,12 +21,12 @@ const { titel, dachzeile, lead } = Astro.props;
     overflow: hidden;
   }
   .seitenkopf h1 { margin-bottom: 0.4em; }
-  .seitenkopf .dachzeile { color: #F08A73; }
+  .seitenkopf .dachzeile { color: var(--igd-akzent-dunkelgrund); }
   .seitenkopf .lead { color: #D7DBD9; margin: 0; }
   .seitenkopf__band {
     height: clamp(2.5rem, 2rem + 2vw, 4rem);
     margin-top: clamp(1.75rem, 1rem + 3vw, 3rem);
-    background: var(--igd-rot);
+    background: var(--igd-primaer);
     clip-path: polygon(0 60%, 100% 0, 100% 45%, 0 100%);
     margin-bottom: -1px;
   }

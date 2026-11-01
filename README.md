@@ -12,7 +12,7 @@ Grundlage: [`docs/IGD-Website-Relaunch-Briefing.md`](docs/IGD-Website-Relaunch-B
 | 3 – Funktionen | Formulare, Anmeldung, .ics, CMS + Logins, täglicher Rebuild | offen |
 | 4–6 | Review, Launch-Vorbereitung, Go-live an der 20. HV (13.5.2027) | offen |
 
-Alles, was noch fehlt, ist auf der Website als roter, gestrichelter Kasten **«Platzhalter»** markiert.
+Alles, was noch fehlt, ist auf der Website als orange gestrichelter Kasten **«Platzhalter»** markiert.
 
 ## Wo ist was?
 
