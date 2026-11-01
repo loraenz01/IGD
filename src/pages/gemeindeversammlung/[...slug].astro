@@ -1,0 +1,51 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Seitenkopf from '../../components/Seitenkopf.astro';
+import Empfehlung from '../../components/Empfehlung.astro';
+import Teilen from '../../components/Teilen.astro';
+import { datumLang } from '../../lib/site';
+
+export async function getStaticPaths() {
+  return (await getCollection('gemeindeversammlungen')).map((v) => ({ params: { slug: v.id }, props: { gv: v } }));
+}
+const { gv } = Astro.props;
+const v = gv.data;
+const { Content } = await render(gv);
+---
+<Base titel={v.titel} beschreibung={`Traktanden und Empfehlungen der IG Diessbach zur Gemeindeversammlung vom ${datumLang(v.datum)}.`}>
+  <Seitenkopf dachzeile="Gemeindeversammlung" titel={v.titel}>
+    <p class="gv-meta">{datumLang(v.datum)}{v.zeit && ` · ${v.zeit.replace(':', '.')} Uhr`} · {v.ort}</p>
+    {v.botschaft_url && <p><a href={v.botschaft_url} class="knopf knopf--hell knopf--klein" rel="noopener">Botschaft der Gemeinde (PDF)</a></p>}
+  </Seitenkopf>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose"><Content /></div>
+      {v.traktanden.length > 0 && (
+        <ol class="traktanden">
+          {v.traktanden.map((t, i) => (
+            <li class="traktandum">
+              <h2><span class="traktandum__nr">{i + 1}</span> {t.titel}</h2>
+              <h3>Worum geht es?</h3>
+              <p>{t.worum}</p>
+              {t.kosten && (<><h3>Was kostet es?</h3><p>{t.kosten}</p></>)}
+              <Empfehlung empfehlung={t.empfehlung} begruendung={t.begruendung} />
+            </li>
+          ))}
+        </ol>
+      )}
+      <p class="aufruf">Kommen Sie an die Gemeindeversammlung – jede Stimme zählt.</p>
+      <Teilen titel={v.titel} />
+    </div>
+  </section>
+</Base>
+<style>
+  .gv-meta { font-weight: 600; color: #D7DBD9; }
+  .traktanden { list-style: none; padding: 0; margin: 0; max-width: var(--breite-text); }
+  .traktandum { padding-block: 2rem; border-top: 1px solid var(--igd-linie); }
+  .traktandum h2 { font-size: var(--fs-h3); display: flex; gap: 0.75rem; align-items: baseline; }
+  .traktandum__nr { flex: none; display: inline-grid; place-items: center; width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--igd-anthrazit); color: var(--igd-weiss); font-size: 1rem; }
+  .traktandum h3 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--igd-grau); margin: 1.25rem 0 0.25rem; }
+  .aufruf { font-weight: 800; font-size: 1.3rem; color: var(--igd-rot); margin-top: 2rem; }
+</style>

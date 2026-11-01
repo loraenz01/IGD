@@ -1,0 +1,43 @@
+---
+import Base from '../../layouts/Base.astro';
+import Seitenkopf from '../../components/Seitenkopf.astro';
+import chronik from '../../data/chronik.json';
+
+const monate = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+function anzeige(d: string) {
+  const [j, m, t] = d.split('-');
+  if (t) return `${Number(t)}. ${monate[Number(m) - 1]} ${j}`;
+  if (m) return `${monate[Number(m) - 1]} ${j}`;
+  return j;
+}
+const eintraege = [...chronik.eintraege].sort((a, b) => a.datum.localeCompare(b.datum));
+---
+<Base titel="Chronik – 20 Jahre IGD" beschreibung="20 Jahre IG Diessbach: Wahlen, Anlässe und wichtige Ereignisse im Überblick.">
+  <Seitenkopf dachzeile="Wer wir sind" titel="20 Jahre IG Diessbach" lead="Ein Blick zurück auf Wahlen, Anlässe und Menschen, die die IG Diessbach geprägt haben." />
+  <section class="section">
+    <div class="container">
+      <ol class="zeitstrahl">
+        {eintraege.map((e) => (
+          <li>
+            <p class="zeitstrahl__datum">{anzeige(e.datum)}</p>
+            <h2 class="zeitstrahl__titel">{e.titel}</h2>
+            {e.text && <p class:list={{ platzhalter: 'offen' in e && e.offen }}>{e.text}</p>}
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+</Base>
+<style>
+  .zeitstrahl { list-style: none; padding: 0; margin: 0; max-width: var(--breite-text); position: relative; }
+  .zeitstrahl::before { content: ''; position: absolute; left: 0.45rem; top: 0.5rem; bottom: 0.5rem; width: 3px; background: var(--igd-linie); }
+  .zeitstrahl li { position: relative; padding: 0 0 2rem 2.5rem; }
+  .zeitstrahl li::before {
+    content: ''; position: absolute; left: 0; top: 0.35rem;
+    width: 1.15rem; height: 1.15rem; border-radius: 50%;
+    background: var(--igd-weiss); border: 4px solid var(--igd-rot);
+  }
+  .zeitstrahl__datum { font-weight: 600; color: var(--igd-rot); margin: 0; font-size: var(--fs-klein); }
+  .zeitstrahl__titel { font-size: 1.3rem; margin: 0.1rem 0 0.3rem; }
+  .zeitstrahl p { margin: 0; }
+</style>

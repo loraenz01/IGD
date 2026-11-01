@@ -1,0 +1,58 @@
+---
+import Base from '../../layouts/Base.astro';
+import Seitenkopf from '../../components/Seitenkopf.astro';
+import { versammlungen } from '../../lib/inhalte';
+import { datumLang } from '../../lib/site';
+const { alle, naechste } = await versammlungen();
+const fruehere = alle.filter((v) => v !== naechste).reverse();
+---
+<Base titel="Gemeindeversammlung verständlich erklärt" beschreibung="Worum geht es an der nächsten Gemeindeversammlung in Diessbach, was kostet es – und was empfiehlt die IG Diessbach?">
+  <Seitenkopf
+    dachzeile="Gemeindeversammlung"
+    titel="Gemeindeversammlung verständlich erklärt"
+    lead="An der Gemeindeversammlung entscheiden die Stimmberechtigten von Diessbach direkt über die Geschäfte der Gemeinde. Wir erklären jedes Traktandum in einfacher Sprache und sagen offen, was wir empfehlen."
+  />
+
+  <section class="section">
+    <div class="container">
+      <h2>Nächste Versammlung</h2>
+      {naechste ? (
+        <article class="karte karte--link naechste">
+          <div class="karte__inhalt">
+            <p class="karte__meta">{datumLang(naechste.data.datum)}{naechste.data.zeit && ` · ${naechste.data.zeit.replace(':', '.')} Uhr`} · {naechste.data.ort}</p>
+            <h3 class="karte__titel"><a href={`/gemeindeversammlung/${naechste.id}/`}>{naechste.data.titel}</a></h3>
+            <p>{naechste.data.traktanden.length ? `${naechste.data.traktanden.length} Traktanden mit unseren Empfehlungen` : 'Traktanden und Empfehlungen folgen in Kürze.'}</p>
+            <p class="weiter" aria-hidden="true">Zur Übersicht →</p>
+          </div>
+        </article>
+      ) : <p>Das Datum der nächsten Versammlung folgt.</p>}
+    </div>
+  </section>
+
+  <section class="section section--hell">
+    <div class="container prose">
+      <h2>So funktioniert die Gemeindeversammlung</h2>
+      <p>Die Gemeindeversammlung ist das «Parlament» von Diessbach – und alle Stimmberechtigten sind Mitglied. Wer kommt, kann mitreden, Fragen stellen und abstimmen.</p>
+      <ul>
+        <li><strong>Die Botschaft:</strong> Vor jeder Versammlung erhalten alle Haushalte die Unterlagen der Gemeinde mit allen Traktanden.</li>
+        <li><strong>Die Traktanden:</strong> Das sind die Geschäfte, über die entschieden wird – zum Beispiel das Budget, Kredite für Strassen oder Reglemente.</li>
+        <li><strong>Die Abstimmung:</strong> Abgestimmt wird offen mit Handerheben. Es zählt die Mehrheit der Anwesenden.</li>
+      </ul>
+      <p class="aufruf">Kommen Sie an die Gemeindeversammlung – jede Stimme zählt.</p>
+      <p class="platzhalter">Text vom Vorstand prüfen (z.B. Stimmrecht, Ort, Dauer).</p>
+    </div>
+  </section>
+
+  {fruehere.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <h2>Frühere Versammlungen</h2>
+        <ul>{fruehere.map((v) => <li><a href={`/gemeindeversammlung/${v.id}/`}>{v.data.titel}</a></li>)}</ul>
+      </div>
+    </section>
+  )}
+</Base>
+<style>
+  .naechste { border-top: 6px solid var(--igd-rot); max-width: var(--breite-text); }
+  .aufruf { font-weight: 800; font-size: 1.3rem; color: var(--igd-rot); }
+</style>

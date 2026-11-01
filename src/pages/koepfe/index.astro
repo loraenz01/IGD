@@ -1,0 +1,64 @@
+---
+import Base from '../../layouts/Base.astro';
+import Seitenkopf from '../../components/Seitenkopf.astro';
+import PersonKarte from '../../components/PersonKarte.astro';
+import Besetzung from '../../components/Besetzung.astro';
+import { aktivePersonen, GREMIEN } from '../../lib/inhalte';
+
+const personen = await aktivePersonen();
+const mit = (gremium: keyof typeof GREMIEN) => personen.filter((p) => p.data.rollen.some((r) => r.gremium === gremium));
+
+// Jede Person erscheint EINMAL – im ersten passenden Abschnitt, mit allen Funktionen.
+const gezeigt = new Set<string>();
+const abschnitt = (gremien: (keyof typeof GREMIEN)[]) =>
+  gremien.flatMap(mit).filter((p) => !gezeigt.has(p.id) && gezeigt.add(p.id));
+
+const vorstand = abschnitt(['Vorstand']);
+const gemeinderat = abschnitt(['Gemeinderat']);
+const kommissionen = abschnitt(['PBBK', 'Bildungskommission', 'EWK']);
+
+// Vollständige Besetzung je Gremium (inkl. Personen, deren Karte in einem anderen Abschnitt steht)
+const besetzung = (g: keyof typeof GREMIEN) => mit(g).map((p) => ({ id: p.id, name: p.data.name }));
+---
+<Base titel="Köpfe" beschreibung="Vorstand, Gemeinderat und Kommissionen: die Menschen der IG Diessbach.">
+  <Seitenkopf dachzeile="Köpfe" titel="Die Menschen hinter der IG Diessbach" lead="Vorstand und unsere Vertretung in Gemeinderat und Kommissionen – Amtsperiode 2027–2030." />
+
+  <nav class="container sprung" aria-label="Abschnitte">
+    <a href="#vorstand">Vorstand</a>
+    <a href="#gemeinderat">Gemeinderat</a>
+    <a href="#kommissionen">Kommissionen</a>
+  </nav>
+
+  <section class="section" id="vorstand">
+    <div class="container">
+      <h2>Vorstand</h2>
+      <div class="raster" style="--min: 15rem">{vorstand.map((p) => <PersonKarte person={p} />)}</div>
+    </div>
+  </section>
+
+  <section class="section section--hell" id="gemeinderat">
+    <div class="container">
+      <h2>Gemeinderat</h2>
+      <p class="lead text-breite">Unsere Vertretung im Gemeinderat für die Amtsperiode 1.1.2027–31.12.2030.</p>
+      <Besetzung titel="Gemeinderat" personen={besetzung('Gemeinderat')} />
+      <div class="raster" style="--min: 15rem">{gemeinderat.map((p) => <PersonKarte person={p} />)}</div>
+    </div>
+  </section>
+
+  <section class="section" id="kommissionen">
+    <div class="container">
+      <h2>Kommissionen</h2>
+      <p class="lead text-breite">Unsere Vertretung in den Kommissionen der Gemeinde, Amtsperiode 2027–2030.</p>
+      <div class="besetzungen">
+        <Besetzung titel={GREMIEN.PBBK.lang} personen={besetzung('PBBK')} />
+        <Besetzung titel={GREMIEN.Bildungskommission.lang} personen={besetzung('Bildungskommission')} />
+        <Besetzung titel={GREMIEN.EWK.lang} personen={besetzung('EWK')} />
+      </div>
+      <div class="raster" style="--min: 15rem">{kommissionen.map((p) => <PersonKarte person={p} />)}</div>
+    </div>
+  </section>
+</Base>
+<style>
+  .besetzungen { display: grid; gap: 0 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
+  .sprung { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; padding-block: 1.25rem 0; font-weight: 600; }
+</style>

@@ -1,0 +1,23 @@
+{
+  "_hinweis": "Bekannte Einträge aus dem Briefing (Kap. 7.3). In Phase 2 aus https://www.igdiessbach.ch/archiv/ vervollständigen.",
+  "eintraege": [
+    { "datum": "2007", "titel": "Gründung der IG Diessbach", "text": "Gründungsjahr noch zu bestätigen.", "offen": true },
+    { "datum": "2018-10-20", "titel": "Rundgang «Alte Aare»", "text": "Rundgang von Studen nach Dotzigen mit rund 30 Teilnehmenden." },
+    { "datum": "2018-10-22", "titel": "Gemeindewahlen 2018", "text": "Überragendes Wahlergebnis – die IG Diessbach gewinnt einen 4. Sitz im Gemeinderat." },
+    { "datum": "2018-11-23", "titel": "Nomination Reto Braun", "text": "Eine ausserordentliche Versammlung nominiert Reto Braun als 4. Gemeinderatsmitglied." },
+    { "datum": "2019", "titel": "Demission Regina Estermann", "text": "Gemeinderätin Regina Estermann tritt per 31. Dezember 2019 zurück." },
+    { "datum": "2019-09-14", "titel": "Stadtbesichtigung Murten", "text": "" },
+    { "datum": "2019-10-04", "titel": "Nomination Christian Beglinger", "text": "Eine ausserordentliche Versammlung nominiert Christian Beglinger für den Gemeinderat." },
+    { "datum": "2020-12-31", "titel": "Demission Christian Mollet", "text": "Rücktritt aus der Elektrizitäts- und Wasserkommission." },
+    { "datum": "2021-02-02", "titel": "Adrian Zingg in die EWK gewählt", "text": "Der Gemeinderat wählt Adrian Zingg als Ersatz in die Elektrizitäts- und Wasserkommission." },
+    { "datum": "2021-07-20", "titel": "Rücktritt des Präsidenten", "text": "Miran Salzmann tritt als Präsident zurück." },
+    { "datum": "2021-08-20", "titel": "Hauptversammlung 2021", "text": "Oskar Häni wird Präsident a.i., Michaela Rodrigues Vizepräsidentin, Iwan Walther neu im Vorstand." },
+    { "datum": "2021-12", "titel": "Wechsel in der Bildungskommission", "text": "Oskar Häni tritt aus der Bildungskommission zurück, Michaela Rodrigues wird als Ersatz gewählt." },
+    { "datum": "2022-10-15", "titel": "Herbstwanderung «Wegbegehung in Diessbach»", "text": "Mit Gemeinderat Martin Kunz und rund 40 Teilnehmenden." },
+    { "datum": "2025-08-23", "titel": "Herbstausflug Aarberg", "text": "Stedtliführung in Aarberg." },
+    { "datum": "2026-01-23", "titel": "Apfelchüechli-Plausch", "text": "" },
+    { "datum": "2026-09-05", "titel": "Dorfrundgang", "text": "Mit der Gruppe für Dorf- und Heimatkunde." },
+    { "datum": "2026-10-25", "titel": "Gemeindewahlen 2026", "text": "8 von 9 Kandidierenden der IG Diessbach werden gewählt." },
+    { "datum": "2027-05-13", "titel": "20. Hauptversammlung", "text": "20 Jahre IG Diessbach – Lancierung der neuen Website." }
+  ]
+}

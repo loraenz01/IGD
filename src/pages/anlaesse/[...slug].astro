@@ -1,0 +1,68 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Seitenkopf from '../../components/Seitenkopf.astro';
+import Teilen from '../../components/Teilen.astro';
+import { datumLang } from '../../lib/site';
+
+export async function getStaticPaths() {
+  return (await getCollection('anlaesse')).map((a) => ({ params: { slug: a.id }, props: { anlass: a } }));
+}
+const { anlass } = Astro.props;
+const a = anlass.data;
+const { Content } = await render(anlass);
+const heute = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Zurich' }).format(new Date());
+const vergangen = a.datum.toISOString().slice(0, 10) < heute;
+const zeit = a.zeit_von ? `${a.zeit_von.replace(':', '.')}${a.zeit_bis ? `–${a.zeit_bis.replace(':', '.')}` : ''} Uhr` : null;
+
+const event = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: a.titel,
+  startDate: a.zeit_von ? `${a.datum.toISOString().slice(0, 10)}T${a.zeit_von}` : a.datum.toISOString().slice(0, 10),
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: { '@type': 'Place', name: a.ort, address: a.ort },
+  description: a.kurz,
+  organizer: { '@type': 'Organization', name: 'IG Diessbach', url: 'https://www.igdiessbach.ch' },
+};
+---
+<Base titel={a.titel} beschreibung={a.kurz}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(event)} />
+  <Seitenkopf dachzeile={vergangen ? 'Rückblick' : 'Anlass'} titel={a.titel}>
+    <dl class="eckdaten">
+      <div><dt>Datum</dt><dd>{datumLang(a.datum)}</dd></div>
+      {zeit && <div><dt>Zeit</dt><dd>{zeit}</dd></div>}
+      <div><dt>Ort</dt><dd>{a.ort}</dd></div>
+      {!vergangen && a.anmeldeschluss && <div><dt>Anmeldeschluss</dt><dd>{datumLang(a.anmeldeschluss)}</dd></div>}
+    </dl>
+  </Seitenkopf>
+  <section class="section">
+    <div class="container">
+      {a.bild && <Image src={a.bild} alt={a.bild_alt ?? ''} widths={[640, 1080, 1600]} sizes="(min-width: 72rem) 1152px, 100vw" class="anlass__bild" />}
+      <p class="lead text-breite">{a.kurz}</p>
+      <div class="prose"><Content /></div>
+      {!vergangen && a.anmeldung && (
+        <div class="anmeldung" id="anmeldung">
+          <h2>Anmeldung</h2>
+          <p class="platzhalter">Das Anmeldeformular und «In Kalender eintragen» folgen in Phase 3.</p>
+        </div>
+      )}
+      {a.galerie.length > 0 && (
+        <div class="galerie">
+          {a.galerie.map((g) => <Image src={g} alt="" widths={[400, 800]} sizes="(min-width: 48rem) 33vw, 100vw" />)}
+        </div>
+      )}
+      <Teilen titel={a.titel} />
+    </div>
+  </section>
+</Base>
+<style>
+  .eckdaten { display: flex; flex-wrap: wrap; gap: 1rem 2.5rem; margin: 0; }
+  .eckdaten dt { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.06em; color: #F08A73; font-weight: 600; }
+  .eckdaten dd { margin: 0; font-weight: 600; }
+  :global(.anlass__bild) { width: 100%; border-radius: var(--radius); margin-bottom: 2rem; }
+  .anmeldung { margin-top: 2.5rem; max-width: var(--breite-text); }
+  .galerie { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr)); margin-top: 2rem; }
+  .galerie :global(img) { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); }
+</style>

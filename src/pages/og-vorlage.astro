@@ -1,0 +1,27 @@
+---
+// Vorlage für das Teilen-Vorschaubild (wird per Script zu public/og-standard.png). Nicht verlinkt.
+import '@fontsource/fira-sans/latin-800.css';
+import '@fontsource/fira-sans/latin-600.css';
+import Logo from '../components/Logo.astro';
+---
+<html lang="de-CH"><head><meta charset="utf-8" /><meta name="robots" content="noindex" /><title>OG</title></head>
+<body>
+  <div class="og">
+    <Logo variante="voll" ton="weiss" class="og__logo" />
+    <div>
+      <p class="og__dach">Interessengemeinschaft Diessbach</p>
+      <p class="og__claim">Parteiunabhängig für unser&nbsp;Dorf.</p>
+      <p class="og__url">igdiessbach.ch</p>
+    </div>
+    <div class="og__band"></div>
+  </div>
+</body></html>
+<style is:global>
+  body { margin: 0; }
+  .og { position: relative; width: 1200px; height: 630px; background: #1F2523; color: #fff; font-family: 'Fira Sans'; display: flex; align-items: center; gap: 64px; padding: 0 80px 90px; box-sizing: border-box; overflow: hidden; }
+  .og__logo { width: 300px; flex: none; }
+  .og__dach { font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #F08A73; font-size: 26px; margin: 0 0 16px; }
+  .og__claim { font-weight: 800; font-size: 76px; line-height: 1.05; margin: 0 0 24px; }
+  .og__url { font-weight: 600; font-size: 30px; margin: 0; color: #D7DBD9; }
+  .og__band { position: absolute; left: 0; right: 0; bottom: 0; height: 110px; background: #B73518; clip-path: polygon(0 55%, 100% 0, 100% 40%, 0 100%); }
+</style>

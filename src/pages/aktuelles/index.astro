@@ -1,0 +1,17 @@
+---
+import Base from '../../layouts/Base.astro';
+import Seitenkopf from '../../components/Seitenkopf.astro';
+import BeitragKarte from '../../components/BeitragKarte.astro';
+import { beitraege } from '../../lib/inhalte';
+const alle = await beitraege();
+---
+<Base titel="Aktuelles" beschreibung="Neuigkeiten der IG Diessbach: Wahlen, Anlässe und Stellungnahmen zu Gemeindegeschäften.">
+  <Seitenkopf dachzeile="Aktuelles" titel="Neuigkeiten aus der IG Diessbach" />
+  <section class="section">
+    <div class="container">
+      {alle.length ? (
+        <div class="raster" style="--min: 19rem">{alle.map((b) => <BeitragKarte beitrag={b} />)}</div>
+      ) : <p>Noch keine Beiträge.</p>}
+    </div>
+  </section>
+</Base>

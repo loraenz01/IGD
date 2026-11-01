@@ -1,0 +1,33 @@
+---
+/** Kopfbereich für Unterseiten: Anthrazit mit rotem Schrägband (wie Kampagne) */
+interface Props { titel: string; dachzeile?: string; lead?: string; }
+const { titel, dachzeile, lead } = Astro.props;
+---
+<section class="seitenkopf">
+  <div class="container">
+    {dachzeile && <p class="dachzeile">{dachzeile}</p>}
+    <h1>{titel}</h1>
+    {lead && <p class="lead text-breite">{lead}</p>}
+    <slot />
+  </div>
+  <div class="seitenkopf__band" aria-hidden="true"></div>
+</section>
+<style>
+  .seitenkopf {
+    position: relative;
+    background: var(--igd-anthrazit);
+    color: var(--igd-weiss);
+    padding-top: clamp(2.5rem, 1.5rem + 4vw, 4.5rem);
+    overflow: hidden;
+  }
+  .seitenkopf h1 { margin-bottom: 0.4em; }
+  .seitenkopf .dachzeile { color: #F08A73; }
+  .seitenkopf .lead { color: #D7DBD9; margin: 0; }
+  .seitenkopf__band {
+    height: clamp(2.5rem, 2rem + 2vw, 4rem);
+    margin-top: clamp(1.75rem, 1rem + 3vw, 3rem);
+    background: var(--igd-rot);
+    clip-path: polygon(0 60%, 100% 0, 100% 45%, 0 100%);
+    margin-bottom: -1px;
+  }
+</style>

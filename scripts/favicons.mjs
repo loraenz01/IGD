@@ -1,0 +1,19 @@
+// Erzeugt Favicons aus dem IG-Zeichen. Aufruf: node scripts/favicons.mjs
+import sharp from 'sharp';
+import { writeFileSync } from 'node:fs';
+
+const zeichen = `
+  <path d="M1048.3 206.7 A535 535 0 1 0 1062 949.1 L1005 790 A392.7 392.7 0 1 1 945.8 309.2 Z"/>
+  <path d="M778 700 L1207 587 L1207 1123 L1062 1123 L1062 949.1 L1005 790 L778 850 Z"/>
+  <rect x="563" y="447" width="215" height="876"/>`;
+
+// Quadratische Fläche in Wappenrot, Zeichen weiss, mit Innenabstand
+const svg = (radius) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1600">
+  <rect width="1600" height="1600" rx="${radius}" fill="#B73518"/>
+  <g fill="#FFFFFF" transform="translate(800 800) scale(0.92) translate(-671 -686)">${zeichen}</g>
+</svg>`;
+
+writeFileSync('public/favicon.svg', svg(320));
+await sharp(Buffer.from(svg(320))).resize(32, 32).png().toFile('public/favicon-32.png');
+await sharp(Buffer.from(svg(0))).resize(180, 180).png().toFile('public/apple-touch-icon.png');
+console.log('Favicons erstellt.');
