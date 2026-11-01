@@ -1,11 +1,9 @@
 ---
 titel: Apfelchüechli-Plausch
 datum: 2027-01-22
-zeit_von: "19:00"
-ort: Diessbach (Ort folgt)
+ort: Diessbach (Ort und Zeit folgen)
 kurz: Gemütlicher Winterabend mit frischen Apfelchüechli – für die ganze Bevölkerung.
 anmeldung: true
-anmeldeschluss: 2027-01-15
 ---
 
-Zeit, Ort und Details folgen. *(Platzhalter – Angaben vom Vorstand ergänzen.)*
+Der traditionelle Winterhöck der IG Diessbach mit frisch zubereiteten Apfelchüechli und Vanillesauce. Zeit und Ort folgen. *(Platzhalter – vom Vorstand ergänzen. In den letzten Jahren: ab 17.30 Uhr in der Eingangshalle der MZH.)*

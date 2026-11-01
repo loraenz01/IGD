@@ -39,7 +39,7 @@ const event = {
   </Seitenkopf>
   <section class="section">
     <div class="container">
-      {a.bild && <Image src={a.bild} alt={a.bild_alt ?? ''} widths={[640, 1080, 1600]} sizes="(min-width: 72rem) 1152px, 100vw" class="anlass__bild" />}
+      {a.bild && <Image src={a.bild} alt={a.bild_alt ?? ''} widths={[480, 800, 1200]} sizes="(min-width: 48rem) 800px, 100vw" class="anlass__bild" />}
       <p class="lead text-breite">{a.kurz}</p>
       <div class="prose"><Content /></div>
       {!vergangen && a.anmeldung && (
@@ -50,7 +50,7 @@ const event = {
       )}
       {a.galerie.length > 0 && (
         <div class="galerie">
-          {a.galerie.map((g) => <Image src={g} alt="" widths={[400, 800]} sizes="(min-width: 48rem) 33vw, 100vw" />)}
+          {a.galerie.map((g, i) => <Image src={g} alt={`Foto ${i + 1} vom Anlass «${a.titel}»`} widths={[400, 800]} sizes="(min-width: 48rem) 33vw, 100vw" />)}
         </div>
       )}
       <Teilen titel={a.titel} />
@@ -61,7 +61,7 @@ const event = {
   .eckdaten { display: flex; flex-wrap: wrap; gap: 1rem 2.5rem; margin: 0; }
   .eckdaten dt { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.06em; color: #F08A73; font-weight: 600; }
   .eckdaten dd { margin: 0; font-weight: 600; }
-  :global(.anlass__bild) { width: 100%; border-radius: var(--radius); margin-bottom: 2rem; }
+  :global(.anlass__bild) { width: auto; max-width: 100%; max-height: 85vh; object-fit: contain; border-radius: var(--radius); margin-bottom: 2rem; }
   .anmeldung { margin-top: 2.5rem; max-width: var(--breite-text); }
   .galerie { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr)); margin-top: 2rem; }
   .galerie :global(img) { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); }

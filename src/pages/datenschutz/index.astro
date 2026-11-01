@@ -1,11 +1,49 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Seitenkopf from '../../components/Seitenkopf.astro';
+import { SITE } from '../../lib/site';
 ---
-<Base titel="Datenschutz">
-  <Seitenkopf titel="Datenschutzerklärung" />
+<Base titel="Datenschutz" beschreibung="Datenschutzerklärung der IG Diessbach nach schweizerischem Datenschutzgesetz (revDSG).">
+  <Seitenkopf titel="Datenschutzerklärung" lead="Wie wir mit Ihren Daten umgehen – kurz und verständlich." />
   <section class="section"><div class="container prose">
-    <p>Diese Website verwendet keine Tracking-Cookies und lädt keine Inhalte von Drittanbietern.</p>
-    <p class="platzhalter">Datenschutzerklärung nach revDSG folgt in Phase 2 (Entwurf, vom Vorstand zu prüfen).</p>
+    <p class="platzhalter">Entwurf nach dem schweizerischen Datenschutzgesetz (DSG, in Kraft seit 1.9.2023) – vom Vorstand zu prüfen und freizugeben. Keine Rechtsberatung.</p>
+
+    <h2>Das Wichtigste in Kürze</h2>
+    <ul>
+      <li>Diese Website setzt <strong>keine Tracking- oder Werbe-Cookies</strong> und verwendet keine Analysedienste.</li>
+      <li>Schriften und Bilder werden von unserer eigenen Website geladen – <strong>keine Einbindung von Google, Facebook oder ähnlichen Diensten</strong>.</li>
+      <li>Daten aus Formularen verwenden wir nur, um Ihr Anliegen zu bearbeiten. Wir verkaufen oder vermieten keine Daten.</li>
+    </ul>
+
+    <h2>1. Verantwortlich</h2>
+    <address>
+      {SITE.langname}<br />
+      {SITE.adresse.zusatz}<br />
+      {SITE.adresse.strasse}<br />
+      {SITE.adresse.ort}<br />
+      <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+    </address>
+
+    <h2>2. Welche Daten wir bearbeiten</h2>
+    <h3>Beim Besuch der Website</h3>
+    <p>Beim Aufruf der Website speichert unser Hosting-Anbieter automatisch technische Angaben in Protokolldateien (Server-Logs): IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browser und Betriebssystem. Diese Daten sind nötig, um die Website sicher und zuverlässig bereitzustellen. Wir werten sie nicht aus, um Sie persönlich zu identifizieren.</p>
+    <h3>Bei Formularen</h3>
+    <p>Wenn Sie uns über ein Formular schreiben, sich für einen Anlass anmelden oder Mitglied werden möchten, bearbeiten wir die Angaben, die Sie eintragen, zum Beispiel Name, Adresse, E-Mail-Adresse, Telefonnummer und Ihre Nachricht. Wir verwenden diese Daten nur für den Zweck, für den Sie sie uns geben: die Beantwortung Ihrer Anfrage, die Organisation des Anlasses oder die Mitgliederverwaltung.</p>
+    <h3>Personen auf dieser Website</h3>
+    <p>Fotos und Angaben zu Vorstand und Behördenmitgliedern veröffentlichen wir mit deren Einwilligung.</p>
+
+    <h2>3. Weitergabe und Auftragsbearbeiter</h2>
+    <p>Die Website wird bei <strong>Netlify, Inc.</strong> (USA) betrieben. Netlify stellt die Website bereit, speichert die Server-Logs und nimmt die Formulareingaben entgegen. Dabei werden Daten in die USA übermittelt. Die USA verfügen aus Sicht der Schweiz nicht in jedem Fall über ein angemessenes Datenschutzniveau. Wir stützen die Bekanntgabe auf die Standardvertragsklauseln der EU-Kommission, die vom Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten anerkannt sind, und – soweit Netlify zertifiziert ist – auf das Swiss-U.S. Data Privacy Framework.</p>
+    <p>Benachrichtigungen über neue Formulareingaben erhalten die zuständigen Vorstandsmitglieder per E-Mail. Darüber hinaus geben wir Ihre Daten nicht an Dritte weiter, ausser wir sind gesetzlich dazu verpflichtet.</p>
+
+    <h2>4. Aufbewahrung</h2>
+    <p>Wir bewahren Daten nur so lange auf, wie es für den Zweck nötig ist: Anfragen in der Regel bis zur Erledigung, Anmeldungen bis nach dem Anlass, Mitgliederdaten für die Dauer der Mitgliedschaft und danach gemäss gesetzlichen Aufbewahrungspflichten.</p>
+
+    <h2>5. Ihre Rechte</h2>
+    <p>Sie können jederzeit Auskunft darüber verlangen, welche Daten wir über Sie bearbeiten. Sie können die Berichtigung, Löschung oder Herausgabe Ihrer Daten verlangen und einer Bearbeitung widersprechen. Wenden Sie sich dafür an <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. Sie haben zudem das Recht, sich beim Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) zu beschweren.</p>
+
+    <h2>6. Änderungen</h2>
+    <p>Wir können diese Datenschutzerklärung anpassen. Es gilt die jeweils auf dieser Seite veröffentlichte Fassung.</p>
+    <p class="grau">Stand: Entwurf November 2026</p>
   </div></section>
 </Base>
