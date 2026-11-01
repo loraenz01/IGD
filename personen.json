@@ -1,0 +1,285 @@
+{
+  "_hinweis": "Stand 1.11.2026. Angaben aus den Wahlplakaten 2026 übernommen. Einwilligung aller Personen für Foto und Angaben liegt vor. Amtsperiode Behörden: 1.1.2027–31.12.2030.",
+  "personen": [
+    {
+      "slug": "michaela-rodrigues-udry",
+      "name": "Michaela Rodrigues-Udry",
+      "foto": "personen/michaela-rodrigues-udry.jpg",
+      "foto_status": "platzhalter-kampagne",
+      "jahrgang": 1985,
+      "kinder": 2,
+      "beruf": "Pharma-Assistentin, Familienfrau",
+      "rollen": [
+        {
+          "gremium": "Vorstand",
+          "funktion": "Präsidentin"
+        },
+        {
+          "gremium": "Bildungskommission",
+          "funktion": "Mitglied",
+          "status": "bisher"
+        }
+      ],
+      "anliegen": [
+        "Unsere Schulen in Diessbach & Dotzigen fördern",
+        "Zukunftsorientierte Kinder- & Erwachsenenbildung"
+      ],
+      "zitat": null
+    },
+    {
+      "slug": "iwan-walther",
+      "name": "Iwan Walther",
+      "foto": "personen/iwan-walther.jpg",
+      "foto_status": "platzhalter-kampagne",
+      "jahrgang": 1980,
+      "kinder": 2,
+      "beruf": "Produktionstechniker, Geschäftsführer",
+      "rollen": [
+        {
+          "gremium": "Vorstand",
+          "funktion": "Vizepräsident"
+        },
+        {
+          "gremium": "PBBK",
+          "funktion": "Mitglied",
+          "status": "bisher"
+        }
+      ],
+      "anliegen": [
+        "Strassen & Leitungen vorausschauend instand halten",
+        "Diessbach als Wohn- & Wirtschaftsstandort stärken"
+      ],
+      "zitat": null
+    },
+    {
+      "slug": "helena-burri",
+      "name": "Helena Burri",
+      "foto": "personen/helena-burri.jpg",
+      "foto_status": "platzhalter-initialen",
+      "jahrgang": null,
+      "kinder": null,
+      "beruf": null,
+      "rollen": [
+        {
+          "gremium": "Vorstand",
+          "funktion": "Sekretärin"
+        }
+      ],
+      "anliegen": [],
+      "zitat": null
+    },
+    {
+      "slug": "jose-saez",
+      "name": "José Saez",
+      "foto": "personen/jose-saez.jpg",
+      "foto_status": "platzhalter-initialen",
+      "jahrgang": null,
+      "kinder": null,
+      "beruf": null,
+      "rollen": [
+        {
+          "gremium": "Vorstand",
+          "funktion": "Kassier"
+        }
+      ],
+      "anliegen": [],
+      "zitat": null
+    },
+    {
+      "slug": "martina-wipf",
+      "name": "Martina Wipf",
+      "foto": "personen/martina-wipf.jpg",
+      "foto_status": "platzhalter-kampagne",
+      "jahrgang": 1965,
+      "kinder": 6,
+      "beruf": "Heilerziehungspflegerin, Familienfrau",
+      "rollen": [
+        {
+          "gremium": "Vorstand",
+          "funktion": "Beisitzerin"
+        },
+        {
+          "gremium": "Gemeinderat",
+          "funktion": "Gemeinderätin",
+          "status": "neu",
+          "ressort": null
+        }
+      ],
+      "anliegen": [
+        "Bewährtes erhalten, Neues ermöglichen",
+        "Die Bedürfnisse der Bevölkerung im Mittelpunkt"
+      ],
+      "zitat": null
+    },
+    {
+      "slug": "lorenz-gerber-cartier",
+      "name": "Lorenz Gerber-Cartier",
+      "foto": "personen/lorenz-gerber-cartier.jpg",
+      "foto_status": "platzhalter-kampagne",
+      "jahrgang": 1987,
+      "kinder": 2,
+      "beruf": "Immobilienentwickler, Geschäftsführer",
+      "rollen": [
+        {
+          "gremium": "Vorstand",
+          "funktion": "Beisitzer"
+        },
+        {
+          "gremium": "PBBK",
+          "funktion": "Mitglied",
+          "status": "neu"
+        }
+      ],
+      "anliegen": [
+        "Strassen & Leitungen vorausschauend instand halten",
+        "Diessbach als Wohn- & Wirtschaftsstandort stärken"
+      ],
+      "zitat": null
+    },
+    {
+      "slug": "michael-burri",
+      "name": "Michael Burri",
+      "foto": "personen/michael-burri.jpg",
+      "foto_status": "platzhalter-kampagne",
+      "jahrgang": 1967,
+      "kinder": 3,
+      "beruf": "Eidg. dipl. Haustechnikinstallateur, Geschäftsführer",
+      "rollen": [
+        {
+          "gremium": "Gemeinderat",
+          "funktion": "Gemeinderat",
+          "status": "bisher",
+          "ressort": null,
+          "bemerkung": "Bisher Gemeindepräsident – Urnenwahl Präsidium am 22.11.2026"
+        }
+      ],
+      "anliegen": [
+        "Bewährtes erhalten, Neues ermöglichen",
+        "Die Bedürfnisse der Bevölkerung im Mittelpunkt"
+      ],
+      "zitat": null
+    },
+    {
+      "slug": "christian-beglinger",
+      "name": "Christian Beglinger",
+      "foto": "personen/christian-beglinger.jpg",
+      "foto_status": "platzhalter-kampagne",
+      "jahrgang": 1966,
+      "kinder": null,
+      "beruf": "Zimmermann, Techn. Kaufmann",
+      "rollen": [
+        {
+          "gremium": "Gemeinderat",
+          "funktion": "Gemeinderat",
+          "status": "bisher",
+          "ressort": null
+        }
+      ],
+      "anliegen": [
+        "Bewährtes erhalten, Neues ermöglichen",
+        "Die Bedürfnisse der Bevölkerung im Mittelpunkt"
+      ],
+      "zitat": null
+    },
+    {
+      "slug": "tania-zingg",
+      "name": "Tania Zingg",
+      "foto": "personen/tania-zingg.jpg",
+      "foto_status": "platzhalter-kampagne",
+      "jahrgang": 1999,
+      "kinder": null,
+      "beruf": "Bauverwalterin, Gemeindefachfrau, Detailhandelsfachfrau",
+      "rollen": [
+        {
+          "gremium": "PBBK",
+          "funktion": "Mitglied",
+          "status": "neu"
+        }
+      ],
+      "anliegen": [
+        "Strassen & Leitungen vorausschauend instand halten",
+        "Diessbach als Wohn- & Wirtschaftsstandort stärken"
+      ],
+      "zitat": null
+    },
+    {
+      "slug": "ayla-ruch",
+      "name": "Ayla Ruch",
+      "foto": "personen/ayla-ruch.jpg",
+      "foto_status": "platzhalter-kampagne",
+      "jahrgang": 1989,
+      "kinder": 2,
+      "beruf": "Pharma-Assistentin, Familienfrau",
+      "rollen": [
+        {
+          "gremium": "Bildungskommission",
+          "funktion": "Mitglied",
+          "status": "neu"
+        }
+      ],
+      "anliegen": [
+        "Unsere Schulen in Diessbach & Dotzigen fördern",
+        "Zukunftsorientierte Kinder- & Erwachsenenbildung"
+      ],
+      "zitat": null
+    },
+    {
+      "slug": "marco-tribastone",
+      "name": "Marco Tribastone",
+      "foto": "personen/marco-tribastone.jpg",
+      "foto_status": "platzhalter-kampagne",
+      "jahrgang": 1972,
+      "kinder": 2,
+      "beruf": "Hochbaupolier",
+      "rollen": [
+        {
+          "gremium": "EWK",
+          "funktion": "Mitglied",
+          "status": "bisher",
+          "wahl": "still gewählt"
+        }
+      ],
+      "anliegen": [
+        "Grundversorgung mit Wasser & Strom sichern",
+        "Nachhaltig mit Wasser & Energie umgehen"
+      ],
+      "zitat": null
+    },
+    {
+      "slug": "adrian-zingg",
+      "name": "Adrian Zingg",
+      "foto": "personen/adrian-zingg.jpg",
+      "foto_status": "platzhalter-kampagne",
+      "jahrgang": 1997,
+      "kinder": null,
+      "beruf": "Eidg. dipl. Meisterlandwirt & Landmaschinenmechaniker",
+      "rollen": [
+        {
+          "gremium": "EWK",
+          "funktion": "Mitglied",
+          "status": "bisher",
+          "wahl": "still gewählt"
+        }
+      ],
+      "anliegen": [
+        "Grundversorgung mit Wasser & Strom sichern",
+        "Nachhaltig mit Wasser & Energie umgehen"
+      ],
+      "zitat": null
+    },
+    {
+      "slug": "martin-kunz",
+      "name": "Martin Kunz",
+      "foto": "personen/martin-kunz.jpg",
+      "foto_status": "platzhalter-kampagne",
+      "jahrgang": 1963,
+      "kinder": null,
+      "beruf": "Eidg. dipl. Meisterlandwirt",
+      "rollen": [],
+      "aktiv": false,
+      "bemerkung": "Bisher Gemeinderat und Vize-Gemeindepräsident, 2026 nicht wiedergewählt. Nicht auf 'Köpfe' anzeigen; nur für Dank im Wahl-Beitrag verwenden (mit Einwilligung).",
+      "anliegen": [],
+      "zitat": null
+    }
+  ]
+}
