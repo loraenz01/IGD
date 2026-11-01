@@ -9,11 +9,11 @@ export const SITE = {
   url: 'https://www.igdiessbach.ch',
   email: 'info@igdiessbach.ch', // offen: Funktionsadresse muss noch eingerichtet werden
   adresse: {
-    zusatz: 'c/o Michaela Rodrigues-Udry', // offen: Publikation der Privatadresse mit ihr klären
+    zusatz: 'c/o Michaela Rodrigues-Udry', // Publikation bestätigt (1.11.2026)
     strasse: 'Schmiedgasse 23',
     ort: '3264 Diessbach',
   },
-  whatsappKanal: null as string | null, // offen: URL des WhatsApp-Kanals
+  whatsappKanal: null as string | null, // To-do: Kanal eröffnen, dann URL hier eintragen
 };
 
 export const NAV = [

@@ -1,23 +1,195 @@
 {
-  "_hinweis": "Bekannte Einträge aus dem Briefing (Kap. 7.3). In Phase 2 aus https://www.igdiessbach.ch/archiv/ vervollständigen.",
+  "_hinweis": "Quellen: Statuten (31.1.2006), Archiv und Startseite von www.igdiessbach.ch (ausgelesen 1.11.2026), Wahlresultate der Gemeinde, Briefing Kap. 7.3. Anlässe mit Rückblick-Seite haben ein Feld «anlass».",
   "eintraege": [
-    { "datum": "2007", "titel": "Gründung der IG Diessbach", "text": "Gründungsjahr noch zu bestätigen.", "offen": true },
-    { "datum": "2018-10-20", "titel": "Rundgang «Alte Aare»", "text": "Rundgang von Studen nach Dotzigen mit rund 30 Teilnehmenden." },
-    { "datum": "2018-10-22", "titel": "Gemeindewahlen 2018", "text": "Überragendes Wahlergebnis – die IG Diessbach gewinnt einen 4. Sitz im Gemeinderat." },
-    { "datum": "2018-11-23", "titel": "Nomination Reto Braun", "text": "Eine ausserordentliche Versammlung nominiert Reto Braun als 4. Gemeinderatsmitglied." },
-    { "datum": "2019", "titel": "Demission Regina Estermann", "text": "Gemeinderätin Regina Estermann tritt per 31. Dezember 2019 zurück." },
-    { "datum": "2019-09-14", "titel": "Stadtbesichtigung Murten", "text": "" },
-    { "datum": "2019-10-04", "titel": "Nomination Christian Beglinger", "text": "Eine ausserordentliche Versammlung nominiert Christian Beglinger für den Gemeinderat." },
-    { "datum": "2020-12-31", "titel": "Demission Christian Mollet", "text": "Rücktritt aus der Elektrizitäts- und Wasserkommission." },
-    { "datum": "2021-02-02", "titel": "Adrian Zingg in die EWK gewählt", "text": "Der Gemeinderat wählt Adrian Zingg als Ersatz in die Elektrizitäts- und Wasserkommission." },
-    { "datum": "2021-07-20", "titel": "Rücktritt des Präsidenten", "text": "Miran Salzmann tritt als Präsident zurück." },
-    { "datum": "2021-08-20", "titel": "Hauptversammlung 2021", "text": "Oskar Häni wird Präsident a.i., Michaela Rodrigues Vizepräsidentin, Iwan Walther neu im Vorstand." },
-    { "datum": "2021-12", "titel": "Wechsel in der Bildungskommission", "text": "Oskar Häni tritt aus der Bildungskommission zurück, Michaela Rodrigues wird als Ersatz gewählt." },
-    { "datum": "2022-10-15", "titel": "Herbstwanderung «Wegbegehung in Diessbach»", "text": "Mit Gemeinderat Martin Kunz und rund 40 Teilnehmenden." },
-    { "datum": "2025-08-23", "titel": "Herbstausflug Aarberg", "text": "Stedtliführung in Aarberg." },
-    { "datum": "2026-01-23", "titel": "Apfelchüechli-Plausch", "text": "" },
-    { "datum": "2026-09-05", "titel": "Dorfrundgang", "text": "Mit der Gruppe für Dorf- und Heimatkunde." },
-    { "datum": "2026-10-25", "titel": "Gemeindewahlen 2026", "text": "8 von 9 Kandidierenden der IG Diessbach werden gewählt." },
-    { "datum": "2027-05-13", "titel": "20. Hauptversammlung", "text": "20 Jahre IG Diessbach – Lancierung der neuen Website." }
+    {
+      "datum": "2006-01-31",
+      "titel": "Gründung der IG Diessbach",
+      "text": "Die Gründungsversammlung genehmigt die Statuten einstimmig. Gründungspräsident ist Ueli Siegenthaler, Gründungssekretärin Edith Schneider."
+    },
+    {
+      "datum": "2010-07-10",
+      "titel": "Erste eigene Website",
+      "text": "Die IG Diessbach geht mit ihrer Website online. «Transparenz ist uns sehr wichtig!»"
+    },
+    {
+      "datum": "2010-10-31",
+      "titel": "Gemeindewahlen 2010: Mehrheit im Gemeinderat",
+      "text": "Die IG Diessbach gewinnt einen Sitz dazu und stellt mit André Cartier (376 Stimmen), Miran Salzmann (291) und Silvia Liniger-Häni (210) die Mehrheit im Gemeinderat.",
+      "dokument": "/dokumente/wahlergebnisse-2010.pdf"
+    },
+    {
+      "datum": "2010-11-28",
+      "titel": "André Cartier wird Gemeindepräsident",
+      "text": "In der ersten Kampfwahl seit Jahren wird André Cartier (IG) mit 190 zu 154 Stimmen zum Gemeindepräsidenten für die Amtsdauer 2011–2014 gewählt."
+    },
+    {
+      "datum": "2016-06-04",
+      "titel": "Wechsel in der Planungs-, Bau- und Betriebskommission",
+      "text": "Miran Salzmann tritt aus der PBBK zurück. Am 21. Juli 2016 übernimmt Martin Kunz den Sitz."
+    },
+    {
+      "datum": "2016-09-15",
+      "titel": "Besichtigung der SABAG in Nidau",
+      "text": "Die Bevölkerung erhält Einblick in die moderne Fabrikation von Küchen und Badezimmern."
+    },
+    {
+      "datum": "2017-11-09",
+      "titel": "Demission von Gemeindepräsident André Cartier",
+      "text": "André Cartier scheidet Ende 2017 aus dem Gemeinderat aus. Die IG dankt ihm herzlich für seinen Einsatz."
+    },
+    {
+      "datum": "2018-01-01",
+      "titel": "Martin Kunz in den Gemeinderat",
+      "text": "Martin Kunz folgt auf André Cartier. In der PBBK übernimmt ab 16. Januar Andreas Aeberhard."
+    },
+    {
+      "datum": "2018-01-15",
+      "titel": "Michael Burri wird Gemeindepräsident",
+      "text": "Auf Vorschlag der IG Diessbach wird Michael Burri in stiller Wahl zum Gemeindepräsidenten gewählt."
+    },
+    {
+      "datum": "2018-06-18",
+      "titel": "Informationsabend zur Behördenarbeit",
+      "text": "Grossrat Daniel Bichsel, Präsident des Verbands Bernischer Gemeinden, gibt Einblick in die Arbeit von Gemeinderat und Kommissionen."
+    },
+    {
+      "datum": "2018-10-20",
+      "titel": "Rundgang «Alte Aare»",
+      "text": "Gut 30 Personen auf dem Rundgang von Studen nach Dotzigen.",
+      "anlass": "2018-10-20-rundgang-alte-aare"
+    },
+    {
+      "datum": "2018-10-21",
+      "titel": "Gemeindewahlen 2018",
+      "text": "Ein «überragendes Wahlergebnis»: Die IG Diessbach erhält das Recht auf einen vierten Sitz im Gemeinderat."
+    },
+    {
+      "datum": "2018-11-23",
+      "titel": "Nomination Reto Braun",
+      "text": "Eine ausserordentliche Versammlung nominiert Reto Braun als viertes Gemeinderatsmitglied."
+    },
+    {
+      "datum": "2019-09-14",
+      "titel": "Stadtbesichtigung Murten",
+      "text": "Rundgang mit Besuch der Ringmauer und Apéro.",
+      "anlass": "2019-09-14-stadtbesichtigung-murten"
+    },
+    {
+      "datum": "2019-10-04",
+      "titel": "Nomination Christian Beglinger",
+      "text": "Gemeinderätin Regina Estermann (Ressort Erziehung, Bildung und Sport) tritt nach fünf Amtsjahren per Ende 2019 zurück. Eine ausserordentliche Versammlung nominiert Christian Beglinger als Nachfolger."
+    },
+    {
+      "datum": "2021-02-02",
+      "titel": "Adrian Zingg in die EWK",
+      "text": "Christian Mollet tritt per Ende 2020 aus der Elektrizitäts- und Wasserkommission zurück. Der Gemeinderat wählt Adrian Zingg als Ersatz."
+    },
+    {
+      "datum": "2021-07-20",
+      "titel": "Rücktritt des Präsidenten",
+      "text": "Miran Salzmann tritt als Präsident der IG Diessbach zurück."
+    },
+    {
+      "datum": "2021-08-20",
+      "titel": "Hauptversammlung 2021",
+      "text": "Oskar Häni übernimmt das Präsidium ad interim. Michaela Rodrigues wird Vizepräsidentin, Iwan Walther neu in den Vorstand gewählt."
+    },
+    {
+      "datum": "2021-09-22",
+      "titel": "Kennenlern-Apéro",
+      "text": "«Wär simer u was mache mer?» – Apéro in der Pfrundscheune.",
+      "anlass": "2021-09-22-kennenlern-apero"
+    },
+    {
+      "datum": "2021-12",
+      "titel": "Wechsel in der Bildungskommission",
+      "text": "Oskar Häni tritt wegen Wohnortwechsels zurück. Der Gemeinderat wählt Michaela Rodrigues als Ersatz."
+    },
+    {
+      "datum": "2022-05-11",
+      "titel": "Neuzuzüger-Apéro",
+      "text": "",
+      "anlass": "2022-05-11-neuzuzuegerapero"
+    },
+    {
+      "datum": "2022-10-15",
+      "titel": "Herbstwanderung «Wegbegehung in Diessbach»",
+      "text": "Mit Gemeinderat Martin Kunz und rund 40 Teilnehmenden.",
+      "anlass": "2022-10-15-herbstwanderung-wegbegehung"
+    },
+    {
+      "datum": "2022-10-30",
+      "titel": "Gemeindewahlen 2022",
+      "text": "Gemeinderat: Michael Burri (340 Stimmen), Martin Kunz (177) und Christian Beglinger (162) wiedergewählt. PBBK: Iwan Walther, Andreas Aeberhard, Martin Siegenthaler. Bildungskommission: Martina Wipf (neu) und Michaela Rodrigues-Udry."
+    },
+    {
+      "datum": "2022-11-27",
+      "titel": "Martin Kunz wird Vize-Gemeindepräsident",
+      "text": "Martin Kunz setzt sich mit 183 zu 148 Stimmen durch."
+    },
+    {
+      "datum": "2023-01-27",
+      "titel": "Öpfuchüechli-Plausch",
+      "text": "",
+      "anlass": "2023-01-27-oepfuchuechliplausch"
+    },
+    {
+      "datum": "2023-10-21",
+      "titel": "Herbstausflug Biogasanlage und Biogemüse Maurer",
+      "text": "",
+      "anlass": "2023-10-21-herbstausflug-biogas-maurer"
+    },
+    {
+      "datum": "2024-01-26",
+      "titel": "Öpfuchüechli-Plausch",
+      "text": "",
+      "anlass": "2024-01-26-oepfuchuechliplausch"
+    },
+    {
+      "datum": "2024-05-16",
+      "titel": "Neuzuzüger-Apéro",
+      "text": "",
+      "anlass": "2024-05-16-neuzuzuegerapero"
+    },
+    {
+      "datum": "2024-09-14",
+      "titel": "Herbstausflug Lehmann Baumschulen",
+      "text": "",
+      "anlass": "2024-09-14-herbstausflug-lehmann-baumschulen"
+    },
+    {
+      "datum": "2025-02-07",
+      "titel": "Apfelchüechli-Plausch",
+      "text": "",
+      "anlass": "2025-02-07-apfelchuechli-plausch"
+    },
+    {
+      "datum": "2025-08-23",
+      "titel": "Herbstausflug Aarberg",
+      "text": "Stedtliführung in Aarberg.",
+      "anlass": "2025-08-23-herbstausflug-aarberg"
+    },
+    {
+      "datum": "2026-01-23",
+      "titel": "Apfelchüechli-Plausch",
+      "text": "",
+      "anlass": "2026-01-23-apfelchuechli-plausch"
+    },
+    {
+      "datum": "2026-09-05",
+      "titel": "Dorfrundgang",
+      "text": "Geschichtliche Führung mit der Gruppe für Dorf- und Heimatkunde.",
+      "anlass": "2026-09-05-dorfrundgang"
+    },
+    {
+      "datum": "2026-10-25",
+      "titel": "Gemeindewahlen 2026",
+      "text": "8 von 9 Kandidierenden der IG Diessbach werden gewählt: 3 Sitze im Gemeinderat, 3 in der PBBK, 2 in der Bildungskommission."
+    },
+    {
+      "datum": "2027-05-13",
+      "titel": "20. Hauptversammlung",
+      "text": "Lancierung der neuen Website."
+    }
   ]
 }

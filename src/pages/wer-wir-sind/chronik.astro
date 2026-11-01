@@ -10,10 +10,11 @@ function anzeige(d: string) {
   if (m) return `${monate[Number(m) - 1]} ${j}`;
   return j;
 }
-const eintraege = [...chronik.eintraege].sort((a, b) => a.datum.localeCompare(b.datum));
+type Eintrag = { datum: string; titel: string; text: string; anlass?: string; dokument?: string };
+const eintraege = ([...chronik.eintraege] as Eintrag[]).sort((a, b) => b.datum.localeCompare(a.datum)); // neueste zuerst
 ---
 <Base titel="Chronik – 20 Jahre IGD" beschreibung="20 Jahre IG Diessbach: Wahlen, Anlässe und wichtige Ereignisse im Überblick.">
-  <Seitenkopf dachzeile="Wer wir sind" titel="20 Jahre IG Diessbach" lead="Ein Blick zurück auf Wahlen, Anlässe und Menschen, die die IG Diessbach geprägt haben." />
+  <Seitenkopf dachzeile="Wer wir sind" titel="20 Jahre IG Diessbach" lead="Seit der Gründung am 31. Januar 2006: Wahlen, Anlässe und Menschen, die die IG Diessbach geprägt haben." />
   <section class="section">
     <div class="container">
       <ol class="zeitstrahl">
@@ -21,7 +22,13 @@ const eintraege = [...chronik.eintraege].sort((a, b) => a.datum.localeCompare(b.
           <li>
             <p class="zeitstrahl__datum">{anzeige(e.datum)}</p>
             <h2 class="zeitstrahl__titel">{e.titel}</h2>
-            {e.text && <p class:list={{ platzhalter: 'offen' in e && e.offen }}>{e.text}</p>}
+            {e.text && <p>{e.text}</p>}
+            {('anlass' in e || 'dokument' in e) && (
+              <p class="zeitstrahl__links">
+                {'anlass' in e && <a href={`/anlaesse/${e.anlass}/`}>Zum Rückblick</a>}
+                {'dokument' in e && <a href={e.dokument}>Wahlresultate (PDF)</a>}
+              </p>
+            )}
           </li>
         ))}
       </ol>
@@ -40,4 +47,5 @@ const eintraege = [...chronik.eintraege].sort((a, b) => a.datum.localeCompare(b.
   .zeitstrahl__datum { font-weight: 600; color: var(--igd-rot); margin: 0; font-size: var(--fs-klein); }
   .zeitstrahl__titel { font-size: 1.3rem; margin: 0.1rem 0 0.3rem; }
   .zeitstrahl p { margin: 0; }
+  .zeitstrahl__links { display: flex; gap: 1.25rem; margin-top: 0.35rem !important; font-weight: 600; font-size: var(--fs-klein); }
 </style>

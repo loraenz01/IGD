@@ -8,7 +8,7 @@ Grundlage: [`docs/IGD-Website-Relaunch-Briefing.md`](docs/IGD-Website-Relaunch-B
 | Phase | Inhalt | Status |
 |---|---|---|
 | 1 – Grundgerüst | Astro-Projekt, Design-System, Layout, Navigation, Netlify-Konfiguration | ✅ erledigt |
-| 2 – Inhalte | Alle Seiten mit Texten, Chronik aus Archiv, Impressum/Datenschutz | offen |
+| 2 – Inhalte | Alle Seiten mit Texten, Chronik aus Archiv, Impressum/Datenschutz | 🟡 grösstenteils erledigt |
 | 3 – Funktionen | Formulare, Anmeldung, .ics, CMS + Logins, täglicher Rebuild | offen |
 | 4–6 | Review, Launch-Vorbereitung, Go-live an der 20. HV (13.5.2027) | offen |
 
@@ -25,6 +25,8 @@ Alles, was noch fehlt, ist auf der Website als roter, gestrichelter Kasten **«P
 | Beiträge «Aktuelles» | `src/content/aktuelles/` |
 | Gemeindeversammlungen mit Empfehlungen | `src/content/gemeindeversammlungen/` |
 | Chronik | `src/data/chronik.json` |
+| Statuten und weitere PDFs | `public/dokumente/` |
+| Fotos der Anlässe | `src/assets/anlaesse/` |
 | Vereinsadresse, E-Mail, WhatsApp-Link, Menü | `src/lib/site.ts` |
 | Farben, Schrift, Grundstil | `src/styles/global.css` |
 | Logo (SVG, nachgezeichnet) | `src/components/Logo.astro` |
@@ -44,3 +46,17 @@ npm run build     # fertige Website in dist/
 Hilfsskripte:
 - `node scripts/favicons.mjs`: erzeugt die Favicons aus dem Logo-Zeichen
 - `node scripts/og-bild.cjs`: erzeugt das WhatsApp-Vorschaubild `public/og-standard.png` (vorher `npm run build && npm run preview` starten)
+
+## To-do (offene Punkte)
+
+- [ ] WhatsApp-Kanal eröffnen, Link in `src/lib/site.ts` eintragen
+- [ ] Logo als Vektordatei (liefert Lorenz) – bis dahin nachgezeichnetes SVG
+- [ ] Zitate «Darum engagiere ich mich» je Person
+- [ ] Leistungsbilanz 2023–2026 (3–5 Punkte)
+- [ ] Ressorts Gemeinderat 2027–2030 und Ergebnis Gemeindepräsidium (22.11.2026)
+- [ ] Gemeindewappen: Erlaubnis der Gemeinde
+- [ ] Hochaufgelöstes Dorffoto für die Startseite
+- [ ] Zeit/Ort Apfelchüechli-Plausch 22.1.2027 und 20. HV 13.5.2027, Traktanden GV 1.12.2026
+- [ ] Impressum und Datenschutz vom Vorstand prüfen lassen
+- [ ] Funktionsadressen info@ / praesidium@ / anlaesse@ einrichten
+- [ ] Vor dem Go-live: GitHub-Projekt in ein Vereinskonto verschieben

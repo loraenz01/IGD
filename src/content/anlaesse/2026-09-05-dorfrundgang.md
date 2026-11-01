@@ -1,8 +1,11 @@
 ---
-titel: Dorfrundgang mit der Gruppe für Dorf- und Heimatkunde
+titel: Dorfrundgang mit geschichtlicher Führung
 datum: 2026-09-05
-ort: Diessbach
-kurz: Rundgang durch Diessbach mit spannenden Geschichten zum Dorf.
+zeit_von: "14:00"
+ort: Schulhaus Diessbach (Treffpunkt)
+kurz: Geschichtliche Führung durch Diessbach mit Mitgliedern der Gruppe für Dorf- und Heimatkunde.
 ---
 
-Rückblick folgt. *(Platzhalter – Text und Fotos ergänzen.)*
+In Zusammenarbeit mit der Gruppe für Dorf- und Heimatkunde lud die IG Diessbach zu einem Dorfrundgang mit geschichtlicher Führung ein.
+
+*Fotos vom Anlass folgen.*
