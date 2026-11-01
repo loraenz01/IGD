@@ -9,7 +9,7 @@ Grundlage: [`docs/IGD-Website-Relaunch-Briefing.md`](docs/IGD-Website-Relaunch-B
 |---|---|---|
 | 1 – Grundgerüst | Astro-Projekt, Design-System, Layout, Navigation, Netlify-Konfiguration | ✅ erledigt |
 | 2 – Inhalte | Alle Seiten mit Texten, Chronik aus Archiv, Impressum/Datenschutz | 🟡 grösstenteils erledigt |
-| 3 – Funktionen | Formulare, Anmeldung, .ics, CMS + Logins, täglicher Rebuild | offen |
+| 3 – Funktionen | Formulare, Anmeldung, .ics, CMS + Logins, täglicher Rebuild | 🟡 gebaut – Einrichtung in Netlify/GitHub offen |
 | 4–6 | Review, Launch-Vorbereitung, Go-live an der 20. HV (13.5.2027) | offen |
 
 Alles, was noch fehlt, ist auf der Website als orange gestrichelter Kasten **«Platzhalter»** markiert.
@@ -32,6 +32,10 @@ Alles, was noch fehlt, ist auf der Website als orange gestrichelter Kasten **«P
 | Logo (SVG, nachgezeichnet) | `src/components/Logo.astro` |
 | Logo-Original (JPG) | `design/logo/` |
 | Weiterleitungen alte Jimdo-Adressen | `netlify.toml` |
+| Formulare (Kontakt, Anliegen, Mitglied, Anmeldung) | `src/components/Formular.astro`, Danke-Seite `src/pages/danke.astro` |
+| Kalender-Dateien (.ics) | `src/pages/anlaesse/[slug].ics.ts` |
+| Pflege-Programm (Sveltia CMS) | `public/admin/config.yml`, aufrufbar unter `/admin/` |
+| Täglicher Rebuild | `.github/workflows/taeglicher-rebuild.yml` |
 
 Vergangene Anlässe wandern automatisch in die «Rückblicke». Die Seite ist bis zum Go-live für Suchmaschinen gesperrt. Sie wird erst freigegeben, sobald sie unter `igdiessbach.ch` läuft.
 
@@ -47,6 +51,12 @@ Hilfsskripte:
 - `node scripts/favicons.mjs`: erzeugt die Favicons aus dem Logo-Zeichen
 - `node scripts/og-bild.cjs`: erzeugt das WhatsApp-Vorschaubild `public/og-standard.png` (vorher `npm run build && npm run preview` starten)
 
+## Einrichtung (einmalig, durch Lorenz)
+
+1. **Formulare:** Netlify → Projekt → *Forms* → Formularerkennung aktivieren; unter *Form notifications* E-Mail-Benachrichtigung an die gewünschte Adresse.
+2. **Täglicher Rebuild:** Netlify → *Build & deploy* → *Build hooks* → Hook erstellen; URL in GitHub als Secret `NETLIFY_BUILD_HOOK` speichern.
+3. **Pflege-Programm:** GitHub-OAuth-App erstellen (Callback `https://api.netlify.com/auth/done`), in Netlify unter *Access & security → OAuth* als GitHub-Provider eintragen. Pflegende brauchen ein GitHub-Konto mit Schreibrecht auf das Repo.
+
 ## To-do (offene Punkte)
 
 - [ ] WhatsApp-Kanal eröffnen, Link in `src/lib/site.ts` eintragen
@@ -59,4 +69,6 @@ Hilfsskripte:
 - [ ] Zeit/Ort Apfelchüechli-Plausch 22.1.2027 und 20. HV 13.5.2027, Traktanden GV 1.12.2026
 - [ ] Impressum und Datenschutz vom Vorstand prüfen lassen
 - [ ] Funktionsadressen info@ / praesidium@ / anlaesse@ einrichten
+- [ ] Antwortfrist bei «Ihr Anliegen» (Vorschlag: innert zwei Wochen) bestätigen
+- [ ] Kurzanleitung Pflege-Programm mit Screenshots (sobald Login eingerichtet)
 - [ ] Vor dem Go-live: GitHub-Projekt in ein Vereinskonto verschieben

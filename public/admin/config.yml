@@ -1,0 +1,173 @@
+# Pflege-Programm (Sveltia CMS) für die Website der IG Diessbach
+# Login über GitHub. Änderungen werden direkt gespeichert und sind nach 1–2 Minuten online.
+
+backend:
+  name: github
+  repo: loraenz01/IGD
+  branch: main
+  commit_messages:
+    create: 'Neu: {{collection}} «{{slug}}»'
+    update: 'Geändert: {{collection}} «{{slug}}»'
+    delete: 'Gelöscht: {{collection}} «{{slug}}»'
+    uploadMedia: 'Bild hochgeladen: {{path}}'
+    deleteMedia: 'Bild gelöscht: {{path}}'
+
+site_url: https://igdiessbach.netlify.app
+display_url: https://igdiessbach.netlify.app
+logo_url: /favicon.svg
+
+# Standard-Ablage (wird pro Sammlung überschrieben)
+media_folder: public/uploads
+public_folder: /uploads
+
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  # ---------------------------------------------------------------- Beiträge
+  - name: aktuelles
+    label: Beiträge (Aktuelles)
+    label_singular: Beitrag
+    description: Neuigkeiten der IG Diessbach. Mit «Entwurf» bleibt ein Beitrag unsichtbar.
+    folder: src/content/aktuelles
+    create: true
+    extension: md
+    slug: '{{year}}-{{month}}-{{day}}-{{titel}}'
+    summary: '{{datum | date("DD.MM.YYYY")}} – {{titel}}'
+    sortable_fields: [datum, titel]
+    media_folder: /src/assets/aktuelles
+    public_folder: ../../assets/aktuelles
+    fields:
+      - { name: titel, label: Titel, widget: string }
+      - { name: datum, label: Datum, widget: datetime, time_format: false, format: YYYY-MM-DD }
+      - { name: lead, label: 'Einleitung (1–2 Sätze, erscheint in der Übersicht)', widget: text }
+      - { name: bild, label: Bild, widget: image, required: false }
+      - { name: bild_alt, label: 'Bildbeschreibung (für Blinde, kurz beschreiben, was zu sehen ist)', widget: string, required: false }
+      - { name: pdf, label: PDF-Anhang, widget: file, required: false, media_folder: /public/dokumente, public_folder: /dokumente }
+      - { name: entwurf, label: 'Entwurf (noch nicht veröffentlichen)', widget: boolean, default: true, required: false }
+      - { name: body, label: Text, widget: markdown }
+
+  # ---------------------------------------------------------------- Anlässe
+  - name: anlaesse
+    label: Anlässe
+    label_singular: Anlass
+    description: Vergangene Anlässe erscheinen automatisch unter «Rückblicke».
+    folder: src/content/anlaesse
+    create: true
+    extension: md
+    slug: '{{datum}}-{{titel}}'
+    summary: '{{datum | date("DD.MM.YYYY")}} – {{titel}}'
+    sortable_fields: [datum, titel]
+    media_folder: /src/assets/anlaesse
+    public_folder: ../../assets/anlaesse
+    fields:
+      - { name: titel, label: Titel, widget: string }
+      - { name: datum, label: Datum, widget: datetime, time_format: false, format: YYYY-MM-DD }
+      - { name: zeit_von, label: 'Beginn (z.B. 17:30)', widget: string, required: false, pattern: ['^\d{2}:\d{2}$', 'Bitte im Format 17:30 eingeben'] }
+      - { name: zeit_bis, label: 'Ende (z.B. 21:00)', widget: string, required: false, pattern: ['^\d{2}:\d{2}$', 'Bitte im Format 21:00 eingeben'] }
+      - { name: ort, label: Ort, widget: string }
+      - { name: kurz, label: 'Kurzbeschreibung (1 Satz)', widget: string }
+      - { name: anmeldung, label: Online-Anmeldung anbieten, widget: boolean, default: false, required: false }
+      - { name: anmeldeschluss, label: Anmeldeschluss, widget: datetime, time_format: false, format: YYYY-MM-DD, required: false }
+      - { name: bild, label: Bild, widget: image, required: false }
+      - { name: bild_alt, label: 'Bildbeschreibung (für Blinde)', widget: string, required: false }
+      - { name: galerie, label: 'Fotogalerie (für den Rückblick)', widget: image, multiple: true, required: false }
+      - { name: body, label: Beschreibung, widget: markdown }
+
+  # ------------------------------------------------------ Gemeindeversammlungen
+  - name: gemeindeversammlungen
+    label: Gemeindeversammlungen
+    label_singular: Gemeindeversammlung
+    description: Pro Versammlung alle Traktanden in einfacher Sprache mit unserer Empfehlung.
+    folder: src/content/gemeindeversammlungen
+    create: true
+    extension: md
+    slug: '{{datum}}'
+    summary: '{{titel}}'
+    sortable_fields: [datum]
+    fields:
+      - { name: titel, label: 'Titel (z.B. Gemeindeversammlung vom 1. Dezember 2026)', widget: string }
+      - { name: datum, label: Datum, widget: datetime, time_format: false, format: YYYY-MM-DD }
+      - { name: zeit, label: 'Beginn (z.B. 20:00)', widget: string, required: false }
+      - { name: ort, label: Ort, widget: string }
+      - { name: botschaft_url, label: Link zur Botschaft der Gemeinde (PDF), widget: string, required: false }
+      - name: traktanden
+        label: Traktanden
+        label_singular: Traktandum
+        widget: list
+        required: false
+        summary: '{{titel}} – {{empfehlung}}'
+        fields:
+          - { name: titel, label: Titel, widget: string }
+          - { name: worum, label: 'Worum geht es? (2–3 Sätze, einfache Sprache)', widget: text }
+          - { name: kosten, label: 'Was kostet es?', widget: string, required: false }
+          - { name: empfehlung, label: Unsere Empfehlung, widget: select, options: [Ja, Nein, Stimmfreigabe, Kenntnisnahme] }
+          - { name: begruendung, label: Kurze Begründung, widget: text, required: false }
+      - { name: body, label: 'Einleitung (optional)', widget: markdown, required: false }
+
+  # ---------------------------------------------------------------- Personen
+  - name: personen
+    label: Personen (Köpfe)
+    description: Vorstand und Behördenmitglieder. Porträts im Format 4:5 hochladen.
+    files:
+      - name: personen
+        label: Alle Personen
+        file: src/data/personen.json
+        format: json
+        media_folder: /src/assets/personen
+        public_folder: personen
+        fields:
+          - { name: _hinweis, label: Hinweis, widget: hidden }
+          - name: personen
+            label: Personen
+            label_singular: Person
+            widget: list
+            summary: '{{name}}'
+            fields:
+              - { name: slug, label: 'Kürzel (klein, ohne Umlaute, z.B. vorname-name)', widget: string }
+              - { name: name, label: Name, widget: string }
+              - { name: foto, label: Porträt (4:5), widget: image }
+              - { name: foto_status, label: Foto-Status, widget: hidden }
+              - { name: aktiv, label: Auf «Köpfe» anzeigen, widget: boolean, default: true, required: false }
+              - { name: beruf, label: Beruf, widget: string, required: false }
+              - { name: jahrgang, label: Jahrgang, widget: number, value_type: int, required: false }
+              - { name: kinder, label: Anzahl Kinder, widget: number, value_type: int, required: false }
+              - name: rollen
+                label: Funktionen
+                label_singular: Funktion
+                widget: list
+                required: false
+                summary: '{{gremium}}: {{funktion}}'
+                fields:
+                  - { name: gremium, label: Gremium, widget: select, options: [Vorstand, Gemeinderat, PBBK, Bildungskommission, EWK] }
+                  - { name: funktion, label: 'Funktion (z.B. Präsidentin, Mitglied)', widget: string }
+                  - { name: status, label: Status, widget: select, options: [bisher, neu], required: false }
+                  - { name: ressort, label: Ressort (Gemeinderat), widget: string, required: false }
+                  - { name: wahl, label: 'Wahl (z.B. still gewählt)', widget: string, required: false }
+                  - { name: bemerkung, label: Bemerkung, widget: string, required: false }
+              - { name: anliegen, label: Anliegen (je eine Zeile), widget: list, required: false }
+              - { name: zitat, label: '«Darum engagiere ich mich» (1–2 Sätze)', widget: text, required: false }
+              - { name: bemerkung, label: Interne Bemerkung, widget: string, required: false }
+
+  # ---------------------------------------------------------------- Chronik
+  - name: chronik
+    label: Chronik
+    files:
+      - name: chronik
+        label: Chronik-Einträge
+        file: src/data/chronik.json
+        format: json
+        fields:
+          - { name: _hinweis, label: Hinweis, widget: hidden }
+          - name: eintraege
+            label: Einträge
+            label_singular: Eintrag
+            widget: list
+            summary: '{{datum}} – {{titel}}'
+            fields:
+              - { name: datum, label: 'Datum (JJJJ-MM-TT, JJJJ-MM oder JJJJ)', widget: string }
+              - { name: titel, label: Titel, widget: string }
+              - { name: text, label: Text, widget: text, required: false }
+              - { name: anlass, label: 'Rückblick (Kürzel des Anlasses)', widget: string, required: false }
+              - { name: dokument, label: 'Dokument (z.B. /dokumente/datei.pdf)', widget: string, required: false }

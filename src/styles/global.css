@@ -222,3 +222,32 @@ strong { font-weight: 600; }
 .karte--link:focus-within { outline: 3px solid var(--igd-primaer-hell); outline-offset: 3px; }
 .karte--link a:focus-visible { outline: none; }
 .weiter { font-weight: 600; color: var(--igd-primaer); margin-top: auto !important; padding-top: 0.5rem; }
+
+/* ---------- Formulare ---------- */
+
+.formular { display: grid; gap: 1.1rem; max-width: var(--breite-text); }
+.formular__zeile { display: grid; gap: 1.1rem; }
+@media (min-width: 40rem) { .formular__zeile--2 { grid-template-columns: 1fr 1fr; } .formular__zeile--plz { grid-template-columns: 8rem 1fr; } }
+.feld { display: grid; gap: 0.35rem; }
+.feld label, .feld legend { font-weight: 600; }
+.feld .pflicht { color: var(--igd-primaer); }
+.feld input, .feld textarea, .feld select {
+  width: 100%;
+  font: inherit;
+  font-size: 1.0625rem;
+  padding: 0.7rem 0.85rem;
+  border: 2px solid #A9AEAC;
+  border-radius: var(--radius);
+  background: var(--igd-weiss);
+  color: var(--igd-anthrazit);
+  min-height: 3rem;
+}
+.feld textarea { min-height: 8rem; resize: vertical; }
+.feld input:focus-visible, .feld textarea:focus-visible, .feld select:focus-visible { outline: 3px solid var(--igd-primaer-hell); outline-offset: 1px; border-color: var(--igd-primaer); }
+.feld__hilfe { font-size: 0.9375rem; color: var(--igd-grau); }
+.feld--check { grid-template-columns: auto 1fr; align-items: start; gap: 0.75rem; }
+.feld--check input { width: 1.4rem; height: 1.4rem; min-height: 0; margin-top: 0.2rem; accent-color: var(--igd-primaer); }
+.feld--check label { font-weight: 400; }
+.formular__honig { position: absolute; left: -9999px; }
+.formular__hinweis { font-size: 0.9375rem; color: var(--igd-grau); margin: 0; }
+.formular button { justify-self: start; }

@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://www.igdiessbach.ch',
   trailingSlash: 'always',
-  integrations: [sitemap({ filter: (page) => !page.includes('/og-vorlage/') })],
+  integrations: [sitemap({ filter: (page) => !page.includes('/og-vorlage/') && !page.includes('/danke/') })],
   image: {
     // Bilder werden beim Build automatisch als WebP/AVIF in passenden Grössen erzeugt.
     responsiveStyles: true,

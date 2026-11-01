@@ -4,6 +4,8 @@ import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Seitenkopf from '../../components/Seitenkopf.astro';
 import Teilen from '../../components/Teilen.astro';
+import Formular from '../../components/Formular.astro';
+import Feld from '../../components/Feld.astro';
 import { datumLang } from '../../lib/site';
 
 export async function getStaticPaths() {
@@ -14,6 +16,7 @@ const a = anlass.data;
 const { Content } = await render(anlass);
 const heute = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Zurich' }).format(new Date());
 const vergangen = a.datum.toISOString().slice(0, 10) < heute;
+const anmeldungOffen = !vergangen && a.anmeldung && (!a.anmeldeschluss || a.anmeldeschluss.toISOString().slice(0, 10) >= heute);
 const zeit = a.zeit_von ? `${a.zeit_von.replace(':', '.')}${a.zeit_bis ? `–${a.zeit_bis.replace(':', '.')}` : ''} Uhr` : null;
 
 const event = {
@@ -42,11 +45,25 @@ const event = {
       {a.bild && <Image src={a.bild} alt={a.bild_alt ?? ''} widths={[480, 800, 1200]} sizes="(min-width: 48rem) 800px, 100vw" class="anlass__bild" />}
       <p class="lead text-breite">{a.kurz}</p>
       <div class="prose"><Content /></div>
-      {!vergangen && a.anmeldung && (
+      {!vergangen && (
+        <p class="kalender"><a href={`/anlaesse/${anlass.id}.ics`} class="knopf knopf--sekundaer" download>In Kalender eintragen</a></p>
+      )}
+      {anmeldungOffen && (
         <div class="anmeldung" id="anmeldung">
           <h2>Anmeldung</h2>
-          <p class="platzhalter">Das Anmeldeformular und «In Kalender eintragen» folgen in Phase 3.</p>
+          <Formular name="anmeldung" knopf="Verbindlich anmelden">
+            <input type="hidden" name="anlass" value={`${a.titel} (${datumLang(a.datum)})`} />
+            <Feld formular="anmeldung" name="name" label="Vorname und Name" pflicht autocomplete="name" />
+            <div class="formular__zeile formular__zeile--2">
+              <Feld formular="anmeldung" name="personen" label="Anzahl Personen" typ="number" pflicht min={1} max={20} wert={1} />
+              <Feld formular="anmeldung" name="kontakt" label="E-Mail oder Telefon" pflicht hilfe="Damit wir Sie bei Änderungen erreichen." />
+            </div>
+            <Feld formular="anmeldung" name="bemerkung" label="Bemerkung" typ="textarea" />
+          </Formular>
         </div>
+      )}
+      {!vergangen && a.anmeldung && !anmeldungOffen && (
+        <p class="anmeldung"><strong>Die Anmeldefrist ist abgelaufen.</strong> Bitte melden Sie sich bei Fragen über das <a href="/kontakt/">Kontaktformular</a>.</p>
       )}
       {a.galerie.length > 0 && (
         <div class="galerie">
@@ -63,6 +80,7 @@ const event = {
   .eckdaten dd { margin: 0; font-weight: 600; }
   :global(.anlass__bild) { width: auto; max-width: 100%; max-height: 85vh; object-fit: contain; border-radius: var(--radius); margin-bottom: 2rem; }
   .anmeldung { margin-top: 2.5rem; max-width: var(--breite-text); }
+  .kalender { margin-top: 1.5rem; }
   .galerie { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr)); margin-top: 2rem; }
   .galerie :global(img) { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); }
 </style>
