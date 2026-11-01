@@ -5,7 +5,7 @@ import '@fontsource/fira-sans/latin-800.css';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE, IST_LIVE } from '../lib/site';
+import { SITE, IST_LIVE, BASIS_URL } from '../lib/site';
 
 interface Props {
   titel?: string;
@@ -14,8 +14,8 @@ interface Props {
 }
 const { titel, beschreibung = SITE.beschreibung, ogBild = '/og-standard.png' } = Astro.props;
 const voller_titel = titel ? `${titel} – ${SITE.name}` : `${SITE.name} – ${SITE.claim}`;
-const kanonisch = new URL(Astro.url.pathname, SITE.url);
-const ogUrl = new URL(ogBild, SITE.url);
+const kanonisch = new URL(Astro.url.pathname, BASIS_URL);
+const ogUrl = new URL(ogBild, BASIS_URL);
 
 const organisation = {
   '@context': 'https://schema.org',

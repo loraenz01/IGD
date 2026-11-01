@@ -1,8 +1,9 @@
 ---
+import { BASIS_URL } from '../lib/site';
 /** «Teilen via WhatsApp» – ohne Tracking, reiner Link */
 interface Props { titel: string; }
 const { titel } = Astro.props;
-const url = new URL(Astro.url.pathname, Astro.site).href;
+const url = new URL(Astro.url.pathname, BASIS_URL).href;
 const wa = `https://wa.me/?text=${encodeURIComponent(`${titel} – ${url}`)}`;
 ---
 <p class="teilen">

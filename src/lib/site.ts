@@ -31,6 +31,12 @@ export const NAV = [
  */
 export const IST_LIVE = (process.env.URL ?? '').includes('igdiessbach.ch');
 
+/**
+ * Adresse, unter der die Seite gerade läuft: nach dem Go-live igdiessbach.ch,
+ * vorher die Netlify-Test-Adresse. Wichtig für Vorschaubilder beim Teilen.
+ */
+export const BASIS_URL = IST_LIVE ? SITE.url : (process.env.URL ?? SITE.url);
+
 const fmtLang = new Intl.DateTimeFormat('de-CH', {
   weekday: 'short', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Zurich',
 });
