@@ -1,6 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Seitenkopf from '../../components/Seitenkopf.astro';
+import Formular from '../../components/Formular.astro';
+import Feld from '../../components/Feld.astro';
 import { SITE } from '../../lib/site';
 ---
 <Base titel="Kontakt" beschreibung="So erreichen Sie die IG Diessbach.">
@@ -18,7 +20,14 @@ import { SITE } from '../../lib/site';
       </div>
       <div>
         <h2>Kontaktformular</h2>
-        <p class="platzhalter">Kontaktformular folgt in Phase 3.</p>
+        <Formular name="kontakt" knopf="Nachricht senden">
+          <div class="formular__zeile formular__zeile--2">
+            <Feld formular="kontakt" name="name" label="Vorname und Name" pflicht autocomplete="name" />
+            <Feld formular="kontakt" name="email" label="E-Mail" typ="email" pflicht autocomplete="email" />
+          </div>
+          <Feld formular="kontakt" name="telefon" label="Telefon" typ="tel" autocomplete="tel" hilfe="Freiwillig – falls Sie lieber angerufen werden." />
+          <Feld formular="kontakt" name="nachricht" label="Ihre Nachricht" typ="textarea" pflicht />
+        </Formular>
       </div>
     </div>
   </section>

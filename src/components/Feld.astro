@@ -1,0 +1,18 @@
+---
+/** Ein Eingabefeld mit Beschriftung. typ="textarea" für mehrzeiligen Text. */
+interface Props {
+  name: string; label: string; formular: string;
+  typ?: string; pflicht?: boolean; hilfe?: string; autocomplete?: string;
+  min?: number; max?: number; wert?: string | number;
+}
+const { name, label, formular, typ = 'text', pflicht = false, hilfe, autocomplete, min, max, wert } = Astro.props;
+const id = `${formular}-${name}`;
+const hilfeId = hilfe ? `${id}-hilfe` : undefined;
+---
+<div class="feld">
+  <label for={id}>{label}{pflicht && <span class="pflicht" aria-hidden="true"> *</span>}</label>
+  {typ === 'textarea'
+    ? <textarea id={id} name={name} required={pflicht} aria-describedby={hilfeId}></textarea>
+    : <input id={id} name={name} type={typ} required={pflicht} autocomplete={autocomplete} aria-describedby={hilfeId} min={min} max={max} value={wert} />}
+  {hilfe && <span class="feld__hilfe" id={hilfeId}>{hilfe}</span>}
+</div>

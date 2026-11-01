@@ -1,0 +1,29 @@
+---
+/**
+ * Netlify-Formular mit Honeypot (statt Captcha) und Danke-Seite.
+ * Netlify erkennt das Formular beim Build am Attribut data-netlify.
+ * Wohin die Eingaben gemailt werden, wird in Netlify eingestellt (Forms → Notifications).
+ */
+interface Props { name: string; knopf?: string; danke?: string; }
+const { name, knopf = 'Absenden', danke = '/danke/' } = Astro.props;
+---
+<form
+  class="formular"
+  name={name}
+  method="POST"
+  action={danke}
+  data-netlify="true"
+  netlify-honeypot="bot-feld"
+>
+  <input type="hidden" name="form-name" value={name} />
+  <p class="formular__honig" aria-hidden="true">
+    <label>Dieses Feld bitte leer lassen: <input name="bot-feld" tabindex="-1" autocomplete="off" /></label>
+  </p>
+  <slot />
+  <div class="feld feld--check">
+    <input type="checkbox" id={`${name}-datenschutz`} name="datenschutz" value="einverstanden" required />
+    <label for={`${name}-datenschutz`}>Ich bin einverstanden, dass die IG Diessbach meine Angaben zur Bearbeitung dieser Anfrage verwendet (<a href="/datenschutz/">Datenschutz</a>). <span class="pflicht" aria-hidden="true">*</span></label>
+  </div>
+  <p class="formular__hinweis">Felder mit <span class="pflicht" aria-hidden="true">*</span> müssen ausgefüllt werden.</p>
+  <button type="submit" class="knopf knopf--primaer">{knopf}</button>
+</form>

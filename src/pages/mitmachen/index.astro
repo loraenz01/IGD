@@ -1,6 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Seitenkopf from '../../components/Seitenkopf.astro';
+import Formular from '../../components/Formular.astro';
+import Feld from '../../components/Feld.astro';
 ---
 <Base titel="Mitmachen" beschreibung="Mitglied werden, kandidieren oder ein Anliegen einbringen – so machen Sie bei der IG Diessbach mit.">
   <Seitenkopf dachzeile="Mitmachen" titel="Gestalten Sie Diessbach mit" lead="Ob als Mitglied, als Kandidatin oder Kandidat oder mit Ihrem Anliegen: Wir freuen uns auf Sie." />
@@ -10,7 +12,23 @@ import Seitenkopf from '../../components/Seitenkopf.astro';
       <h2>Mitglied werden</h2>
       <p>Als Mitglied unterstützen Sie parteiunabhängige Politik für Diessbach, erhalten Einladungen zu unseren Anlässen und reden an der Hauptversammlung mit.</p>
       <p>Mitglied werden können alle Einwohnerinnen und Einwohner von Diessbach ab 18 Jahren. Der Mitgliederbeitrag beträgt <strong>CHF 20.– pro Jahr</strong>. Die Aufnahme erfolgt gemäss <a href="/dokumente/statuten-ig-diessbach.pdf">Statuten</a> durch die Mitgliederversammlung.</p>
-      <p class="platzhalter">Anmeldeformular folgt in Phase 3.</p>
+      <h3>Beitrittsformular</h3>
+      <Formular name="mitglied" knopf="Mitgliedschaft beantragen">
+        <div class="formular__zeile formular__zeile--2">
+          <Feld formular="mitglied" name="vorname" label="Vorname" pflicht autocomplete="given-name" />
+          <Feld formular="mitglied" name="name" label="Name" pflicht autocomplete="family-name" />
+        </div>
+        <Feld formular="mitglied" name="strasse" label="Strasse und Nr." pflicht autocomplete="street-address" />
+        <div class="formular__zeile formular__zeile--plz">
+          <Feld formular="mitglied" name="plz" label="PLZ" pflicht autocomplete="postal-code" wert="3264" />
+          <Feld formular="mitglied" name="ort" label="Ort" pflicht autocomplete="address-level2" wert="Diessbach" />
+        </div>
+        <div class="formular__zeile formular__zeile--2">
+          <Feld formular="mitglied" name="email" label="E-Mail" typ="email" pflicht autocomplete="email" />
+          <Feld formular="mitglied" name="telefon" label="Telefon" typ="tel" autocomplete="tel" />
+        </div>
+        <Feld formular="mitglied" name="bemerkung" label="Bemerkung" typ="textarea" />
+      </Formular>
     </div>
   </section>
 
@@ -26,7 +44,16 @@ import Seitenkopf from '../../components/Seitenkopf.astro';
     <div class="container prose">
       <h2>Ihr Anliegen</h2>
       <p>Was beschäftigt Sie in Diessbach? Schreiben Sie uns – Ihre Meinung zu den aktuellen Geschäften interessiert uns.</p>
-      <p class="platzhalter">Formular folgt in Phase 3, inkl. Angabe, wer antwortet und innert welcher Frist.</p>
+      <p>Ihr Anliegen geht an das Präsidium der IG Diessbach. Wir melden uns in der Regel innert zwei Wochen bei Ihnen.</p>
+      <p class="platzhalter">Antwortfrist «innert zwei Wochen» vom Vorstand bestätigen.</p>
+      <Formular name="anliegen" knopf="Anliegen senden">
+        <div class="formular__zeile formular__zeile--2">
+          <Feld formular="anliegen" name="name" label="Vorname und Name" pflicht autocomplete="name" />
+          <Feld formular="anliegen" name="email" label="E-Mail" typ="email" pflicht autocomplete="email" />
+        </div>
+        <Feld formular="anliegen" name="thema" label="Thema" hilfe="Zum Beispiel: Strassen, Schule, Gemeindeversammlung" />
+        <Feld formular="anliegen" name="anliegen" label="Ihr Anliegen" typ="textarea" pflicht />
+      </Formular>
     </div>
   </section>
 </Base>

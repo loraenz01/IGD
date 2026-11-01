@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import Seitenkopf from '../components/Seitenkopf.astro';
+---
+<Base titel="Vielen Dank" beschreibung="Ihre Nachricht ist bei der IG Diessbach angekommen.">
+  <meta slot="head" name="robots" content="noindex" />
+  <Seitenkopf dachzeile="Gesendet" titel="Vielen Dank!" lead="Ihre Angaben sind bei uns angekommen. Wir melden uns so rasch wie möglich bei Ihnen." />
+  <section class="section"><div class="container">
+    <p class="knopf-reihe"><a class="knopf knopf--primaer" href="/">Zur Startseite</a><a class="knopf knopf--sekundaer" href="/anlaesse/">Unsere Anlässe</a></p>
+  </div></section>
+</Base>
