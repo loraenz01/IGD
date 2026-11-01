@@ -2,13 +2,20 @@
 import { Image } from 'astro:assets';
 import { portraet, GREMIEN, type Person } from '../lib/inhalte';
 
-interface Props { person: Person; }
-const { person } = Astro.props;
+interface Props {
+  person: Person;
+  /** Gremium des Abschnitts: dessen Funktion steht zuoberst */
+  gremium?: Person['data']['rollen'][number]['gremium'];
+  /** Überschriften-Ebene des Namens (h3 unter h2, h4 unter h3) */
+  ueberschrift?: 'h3' | 'h4';
+}
+const { person, gremium, ueberschrift: Titel = 'h3' } = Astro.props;
 const p = person.data;
 const bild = portraet(p.foto);
+const rollen = gremium ? [...p.rollen].sort((a, b) => Number(b.gremium === gremium) - Number(a.gremium === gremium)) : p.rollen;
 const statusText = (s?: string) => (s ? ` (${s})` : '');
 ---
-<article class="person karte" id={person.id}>
+<article class="person karte">
   {bild && (
     <Image
       src={bild}
@@ -19,9 +26,9 @@ const statusText = (s?: string) => (s ? ` (${s})` : '');
     />
   )}
   <div class="karte__inhalt">
-    <h3 class="person__name">{p.name}</h3>
+    <Titel class="person__name">{p.name}</Titel>
     <ul class="person__rollen">
-      {p.rollen.map((r) => (
+      {rollen.map((r) => (
         <li>
           <strong>{r.funktion === 'Mitglied' ? GREMIEN[r.gremium].lang : r.funktion}</strong>
           {r.funktion !== 'Mitglied' && r.gremium !== 'Gemeinderat' && <span> · {GREMIEN[r.gremium].titel}</span>}

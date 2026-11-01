@@ -418,3 +418,4 @@ Lorenz jeden dieser Schritte in einfachen Worten erklären und Zugangsdaten **ni
 | 1.11.2026 | Mitgliederbeitrag **CHF 20.– pro Jahr**. Die Postadresse c/o Michaela Rodrigues-Udry darf publiziert werden. |
 | 1.11.2026 | Formulare gehen bis zum Go-live an Lorenz Gerber (Adresse nur in den Netlify-Einstellungen, nicht im Code). CMS-Pflege: Lorenz, Michaela, Helena. |
 | 1.11.2026 | Netlify bleibt für den Prototyp im Gratisabo (keine weiteren Team-Mitglieder). |
+| 1.11.2026 | **Köpfe: jedes Gremium vollständig** (präzisiert Kap. 7.4). Wer in mehreren Gremien ist, erscheint in jedem Abschnitt; die Karte zeigt jeweils alle Funktionen, die des Abschnitts zuoberst. Kommissionen mit eigenem Untertitel und Sitzzahl. Behörden: «bisher» vor «neu». |
