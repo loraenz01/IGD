@@ -19,7 +19,6 @@ const aktiv = (href: string) => pfad === href || pfad.startsWith(href);
       type="button"
       aria-expanded="false"
       aria-controls="hauptmenu"
-      hidden
     >
       <span class="kopf__burger" aria-hidden="true"><span></span></span>
       <span class="kopf__menutext">Menü</span>
@@ -45,8 +44,6 @@ const aktiv = (href: string) => pfad === href || pfad.startsWith(href);
   const knopf = document.querySelector<HTMLButtonElement>('.kopf__menuknopf');
   const nav = document.getElementById('hauptmenu');
   if (knopf && nav) {
-    knopf.hidden = false;
-    document.documentElement.classList.add('js-menu');
     const setze = (offen: boolean) => {
       knopf.setAttribute('aria-expanded', String(offen));
       nav.classList.toggle('offen', offen);
@@ -89,7 +86,8 @@ const aktiv = (href: string) => pfad === href || pfad.startsWith(href);
   .kopf__marke :global(.kopf__logo) { width: 2.6rem; height: auto; }
   .kopf__name { font-weight: 800; font-size: 1.35rem; letter-spacing: -0.01em; line-height: 1; }
 
-  .kopf__menuknopf {
+  .kopf__menuknopf { display: none; }
+  :global(.js-menu) .kopf__menuknopf {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
@@ -145,7 +143,7 @@ const aktiv = (href: string) => pfad === href || pfad.startsWith(href);
 
   @media (min-width: 68rem) {
     .kopf__innen { flex-wrap: nowrap; }
-    .kopf__menuknopf { display: none; }
+    :global(.js-menu) .kopf__menuknopf { display: none; }
     .kopf__nav, :global(.js-menu) .kopf__nav:not(.offen) { display: block; width: auto; }
     .kopf__nav ul { flex-direction: row; align-items: center; gap: 0.25rem; padding: 0; }
     .kopf__nav a:not(.knopf) {
