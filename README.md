@@ -9,7 +9,7 @@ Grundlage: [`docs/IGD-Website-Relaunch-Briefing.md`](docs/IGD-Website-Relaunch-B
 |---|---|---|
 | 1 – Grundgerüst | Astro-Projekt, Design-System, Layout, Navigation, Netlify-Konfiguration | ✅ erledigt |
 | 2 – Inhalte | Alle Seiten mit Texten, Chronik aus Archiv, Impressum/Datenschutz | 🟡 grösstenteils erledigt |
-| 3 – Funktionen | Formulare, Anmeldung, .ics, CMS + Logins, täglicher Rebuild | 🟡 gebaut – Einrichtung in Netlify/GitHub offen |
+| 3 – Funktionen | Formulare, Anmeldung, .ics, CMS + Logins, täglicher Rebuild | ✅ erledigt und eingerichtet |
 | 4–6 | Review, Launch-Vorbereitung, Go-live an der 20. HV (13.5.2027) | offen |
 
 Alles, was noch fehlt, ist auf der Website als orange gestrichelter Kasten **«Platzhalter»** markiert.
@@ -36,6 +36,7 @@ Alles, was noch fehlt, ist auf der Website als orange gestrichelter Kasten **«P
 | Kalender-Dateien (.ics) | `src/pages/anlaesse/[slug].ics.ts` |
 | Pflege-Programm (Sveltia CMS) | `public/admin/config.yml`, aufrufbar unter `/admin/` |
 | Täglicher Rebuild | `.github/workflows/taeglicher-rebuild.yml` |
+| Kurzanleitung Pflege-Programm (für den Vorstand) | `docs/anleitung-pflege/` (Markdown und PDF) |
 
 Vergangene Anlässe wandern automatisch in die «Rückblicke». Die Seite ist bis zum Go-live für Suchmaschinen gesperrt. Sie wird erst freigegeben, sobald sie unter `igdiessbach.ch` läuft.
 
@@ -51,11 +52,11 @@ Hilfsskripte:
 - `node scripts/favicons.mjs`: erzeugt die Favicons aus dem Logo-Zeichen
 - `node scripts/og-bild.cjs`: erzeugt das WhatsApp-Vorschaubild `public/og-standard.png` (vorher `npm run build && npm run preview` starten)
 
-## Einrichtung (einmalig, durch Lorenz)
+## Einrichtung (einmalig, durch Lorenz) – ✅ erledigt am 1.11.2026
 
 1. **Formulare:** Netlify → Projekt → *Forms* → Formularerkennung aktivieren; unter *Form notifications* E-Mail-Benachrichtigung an die gewünschte Adresse.
 2. **Täglicher Rebuild:** Netlify → *Build & deploy* → *Build hooks* → Hook erstellen; URL in GitHub als Secret `NETLIFY_BUILD_HOOK` speichern.
-3. **Pflege-Programm:** GitHub-OAuth-App erstellen (Callback `https://api.netlify.com/auth/done`), in Netlify unter *Access & security → OAuth* als GitHub-Provider eintragen. Pflegende brauchen ein GitHub-Konto mit Schreibrecht auf das Repo.
+3. **Pflege-Programm:** GitHub-OAuth-App erstellen (Redirect URI `https://api.netlify.com/auth/done`, «Expire user access tokens» aus), in Netlify unter *Access & security → OAuth* als GitHub-Provider eintragen. Pflegende brauchen ein GitHub-Konto mit Schreibrecht auf das Repo.
 
 ## To-do (offene Punkte)
 
@@ -70,5 +71,7 @@ Hilfsskripte:
 - [ ] Impressum und Datenschutz vom Vorstand prüfen lassen
 - [ ] Funktionsadressen info@ / praesidium@ / anlaesse@ einrichten
 - [ ] Antwortfrist bei «Ihr Anliegen» (Vorschlag: innert zwei Wochen) bestätigen
-- [ ] Kurzanleitung Pflege-Programm mit Screenshots (sobald Login eingerichtet)
 - [ ] Vor dem Go-live: GitHub-Projekt in ein Vereinskonto verschieben
+- [ ] Beim Go-live: Michaela und Helena für das Pflege-Programm freischalten (GitHub-Konto erstellen, als Collaborator einladen, Einladung annehmen)
+- [ ] Beim Go-live: E-Mail-Benachrichtigung der Formulare von Lorenz auf die Funktionsadressen umstellen
+- [ ] Beim Go-live: in der GitHub-OAuth-App «IG Diessbach Pflege» die Homepage-URL auf igdiessbach.ch ändern
