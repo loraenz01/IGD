@@ -38,6 +38,8 @@ const organisation = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Menü am Handy sofort eingeklappt darstellen (verhindert Springen beim Laden) -->
+    <script is:inline>document.documentElement.classList.add('js-menu');</script>
     <title>{voller_titel}</title>
     <meta name="description" content={beschreibung} />
     {!IST_LIVE && <meta name="robots" content="noindex, nofollow" />}
