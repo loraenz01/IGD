@@ -1,0 +1,221 @@
+/* ==========================================================================
+   IG Diessbach – Design-System
+   Farben und Schrift gemäss Briefing Kap. 5 (Fortsetzung Wahlkampagne 2026)
+   ========================================================================== */
+
+:root {
+  /* Farben */
+  --igd-rot: #B73518;        /* Hauptfarbe, Wappenrot (diessbach.ch) */
+  --igd-rot-hell: #D64130;   /* Akzent / Hover – an Kampagnen-Originaldatei abgleichen */
+  --igd-rot-dunkel: #9A2C13; /* Hover auf Rot (Kontrast) */
+  --igd-anthrazit: #1F2523;  /* Text dunkel, dunkle Flächen */
+  --igd-grau: #5B6260;       /* Sekundärtext */
+  --igd-linie: #DEDAD2;      /* Trennlinien, Rahmen */
+  --igd-hell: #F5F3EF;       /* Hintergrundflächen, warmes Hellgrau */
+  --igd-weiss: #FFFFFF;
+  --igd-blau: #2541C4;       /* NUR im Logo verwenden */
+
+  /* Schrift */
+  --font: 'Fira Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --fs-basis: 1.125rem;  /* 18 px – ältere Zielgruppe */
+  --fs-klein: 1rem;
+  --fs-h1: clamp(2.25rem, 1.6rem + 3.2vw, 3.75rem);
+  --fs-h2: clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem);
+  --fs-h3: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+
+  /* Abstände und Masse */
+  --breite: 72rem;
+  --breite-text: 44rem;
+  --rand: clamp(1rem, 0.5rem + 2.5vw, 2rem);
+  --abstand: clamp(3rem, 2rem + 4vw, 5.5rem);
+  --radius: 0.5rem;
+  --schatten: 0 1px 2px rgb(31 37 35 / 0.06), 0 4px 16px rgb(31 37 35 / 0.07);
+}
+
+/* ---------- Grundlagen ---------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: 6rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: var(--fs-basis);
+  line-height: 1.6;
+  color: var(--igd-anthrazit);
+  background: var(--igd-weiss);
+  overflow-x: hidden;
+}
+
+img, svg, video { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3, h4 {
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 0.6em;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: 1.125rem; }
+
+p, ul, ol { margin: 0 0 1em; }
+p { text-wrap: pretty; }
+
+a { color: var(--igd-rot); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 3px solid var(--igd-rot-hell);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+strong { font-weight: 600; }
+
+/* ---------- Hilfsklassen ---------- */
+
+.container {
+  width: 100%;
+  max-width: calc(var(--breite) + 2 * var(--rand));
+  margin-inline: auto;
+  padding-inline: var(--rand);
+}
+.text-breite { max-width: var(--breite-text); }
+
+.section { padding-block: var(--abstand); }
+.section--hell { background: var(--igd-hell); }
+.section--dunkel { background: var(--igd-anthrazit); color: var(--igd-weiss); }
+.section--dunkel a { color: var(--igd-weiss); }
+
+.dachzeile {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--igd-rot);
+  margin-bottom: 0.75rem;
+}
+.section--dunkel .dachzeile { color: #F08A73; }
+
+.lead { font-size: 1.25rem; color: var(--igd-grau); }
+.section--dunkel .lead { color: #D7DBD9; }
+
+.grau { color: var(--igd-grau); }
+
+.raster {
+  display: grid;
+  gap: clamp(1rem, 0.5rem + 2vw, 2rem);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--min, 17rem)), 1fr));
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem; top: -4rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--igd-weiss);
+  color: var(--igd-anthrazit);
+  font-weight: 600;
+  border-radius: var(--radius);
+}
+.skip-link:focus { top: 1rem; }
+
+/* Fliesstext aus Markdown */
+.prose { max-width: var(--breite-text); }
+.prose h2 { margin-top: 1.8em; }
+.prose h3 { margin-top: 1.5em; }
+.prose li + li { margin-top: 0.35em; }
+.prose img { border-radius: var(--radius); margin-block: 1.5rem; }
+
+/* Platzhalter-Hinweis (wird vor dem Go-live entfernt) */
+.platzhalter {
+  border: 2px dashed var(--igd-rot-hell);
+  background: #FDF1EE;
+  color: var(--igd-anthrazit);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  font-size: var(--fs-klein);
+}
+.platzhalter::before {
+  content: 'Platzhalter';
+  display: block;
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--igd-rot);
+  margin-bottom: 0.25rem;
+}
+
+/* ---------- Knöpfe ---------- */
+
+.knopf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.7rem 1.4rem;
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+.knopf--klein { min-height: 2.75rem; padding: 0.5rem 1.1rem; font-size: 1rem; }
+.knopf--primaer { background: var(--igd-rot); color: var(--igd-weiss); }
+.knopf--primaer:hover { background: var(--igd-rot-dunkel); color: var(--igd-weiss); }
+.knopf--sekundaer { background: transparent; color: var(--igd-rot); border-color: var(--igd-rot); }
+.knopf--sekundaer:hover { background: var(--igd-rot); color: var(--igd-weiss); }
+.knopf--hell { background: transparent; color: var(--igd-weiss); border-color: var(--igd-weiss); }
+.knopf--hell:hover { background: var(--igd-weiss); color: var(--igd-anthrazit); }
+.knopf-reihe { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+/* ---------- Karten ---------- */
+
+.karte {
+  display: flex;
+  flex-direction: column;
+  background: var(--igd-weiss);
+  border: 1px solid var(--igd-linie);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--schatten);
+}
+.karte__inhalt { padding: 1.25rem 1.4rem 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+.karte__inhalt > * { margin: 0; }
+.karte__meta { font-size: var(--fs-klein); color: var(--igd-grau); font-weight: 600; }
+.karte__titel { font-size: 1.3rem; }
+.karte__titel a { color: inherit; text-decoration: none; }
+.karte__titel a::after { content: ''; position: absolute; inset: 0; }
+.karte--link { position: relative; transition: transform 0.15s, box-shadow 0.15s; }
+.karte--link:hover { transform: translateY(-2px); box-shadow: 0 2px 4px rgb(31 37 35 / 0.08), 0 10px 28px rgb(31 37 35 / 0.12); }
+.karte--link:hover .karte__titel a { text-decoration: underline; text-decoration-color: var(--igd-rot); }
+.karte--link:focus-within { outline: 3px solid var(--igd-rot-hell); outline-offset: 3px; }
+.karte--link a:focus-visible { outline: none; }
+.weiter { font-weight: 600; color: var(--igd-rot); margin-top: auto !important; padding-top: 0.5rem; }

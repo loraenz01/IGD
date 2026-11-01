@@ -1,0 +1,58 @@
+---
+import { Image } from 'astro:assets';
+import { portraet, GREMIEN, type Person } from '../lib/inhalte';
+
+interface Props { person: Person; }
+const { person } = Astro.props;
+const p = person.data;
+const bild = portraet(p.foto);
+const statusText = (s?: string) => (s ? ` (${s})` : '');
+---
+<article class="person karte" id={person.id}>
+  {bild && (
+    <Image
+      src={bild}
+      alt={`Porträt von ${p.name}`}
+      widths={[240, 480]}
+      sizes="(min-width: 40rem) 240px, 50vw"
+      class="person__bild"
+    />
+  )}
+  <div class="karte__inhalt">
+    <h3 class="person__name">{p.name}</h3>
+    <ul class="person__rollen">
+      {p.rollen.map((r) => (
+        <li>
+          <strong>{r.funktion === 'Mitglied' ? GREMIEN[r.gremium].lang : r.funktion}</strong>
+          {r.funktion !== 'Mitglied' && r.gremium !== 'Gemeinderat' && <span> · {GREMIEN[r.gremium].titel}</span>}
+          {r.status && <span class="grau">{statusText(r.status)}</span>}
+          {r.ressort && <span class="grau"> · Ressort {r.ressort}</span>}
+        </li>
+      ))}
+    </ul>
+    {(p.beruf || p.jahrgang) && (
+      <p class="person__info">{[p.beruf, p.jahrgang && `Jahrgang ${p.jahrgang}`].filter(Boolean).join(' · ')}</p>
+    )}
+    {p.zitat ? (
+      <blockquote class="person__zitat">«{p.zitat}»</blockquote>
+    ) : p.anliegen.length > 0 && (
+      <div class="person__anliegen">
+        <p class="person__anliegen-titel">Meine Anliegen</p>
+        <ul>{p.anliegen.map((a) => <li>{a}</li>)}</ul>
+      </div>
+    )}
+  </div>
+</article>
+
+<style>
+  .person :global(.person__bild) { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: var(--igd-hell); }
+  .person__name { font-size: 1.3rem; margin: 0; }
+  .person__rollen { list-style: none; padding: 0; margin: 0; font-size: var(--fs-klein); }
+  .person__rollen strong { color: var(--igd-rot); }
+  .person__info { font-size: 0.9375rem; color: var(--igd-grau); }
+  .person__zitat { margin: 0.5rem 0 0; font-style: italic; border-left: 3px solid var(--igd-rot); padding-left: 0.75rem; }
+  .person__anliegen { margin-top: 0.5rem; padding-top: 0.75rem; border-top: 1px solid var(--igd-linie); font-size: 0.9375rem; }
+  .person__anliegen-titel { font-weight: 600; margin: 0 0 0.25rem; }
+  .person__anliegen ul { margin: 0; padding-left: 1.1rem; }
+  .person__anliegen li::marker { color: var(--igd-rot); }
+</style>

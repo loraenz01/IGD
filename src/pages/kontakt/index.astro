@@ -1,0 +1,31 @@
+---
+import Base from '../../layouts/Base.astro';
+import Seitenkopf from '../../components/Seitenkopf.astro';
+import { SITE } from '../../lib/site';
+---
+<Base titel="Kontakt" beschreibung="So erreichen Sie die IG Diessbach.">
+  <Seitenkopf dachzeile="Kontakt" titel="Schreiben Sie uns" />
+  <section class="section">
+    <div class="container kontakt">
+      <div>
+        <h2>Postadresse</h2>
+        <address>
+          {SITE.langname}<br />{SITE.adresse.zusatz}<br />{SITE.adresse.strasse}<br />{SITE.adresse.ort}
+        </address>
+        <h2>E-Mail</h2>
+        <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+        <p class="platzhalter">Funktionsadressen (info@, praesidium@, anlaesse@) noch einzurichten. Publikation der Postadresse mit Michaela Rodrigues-Udry klären.</p>
+      </div>
+      <div>
+        <h2>Kontaktformular</h2>
+        <p class="platzhalter">Kontaktformular folgt in Phase 3.</p>
+      </div>
+    </div>
+  </section>
+</Base>
+<style>
+  .kontakt { display: grid; gap: 2.5rem; }
+  @media (min-width: 56rem) { .kontakt { grid-template-columns: 1fr 1.4fr; } }
+  .kontakt h2 { font-size: var(--fs-h3); }
+  address { font-style: normal; margin-bottom: 1.5rem; }
+</style>

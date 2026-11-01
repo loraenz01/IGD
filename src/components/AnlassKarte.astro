@@ -1,0 +1,47 @@
+---
+import type { Anlass } from '../lib/inhalte';
+interface Props { anlass: Anlass; vergangen?: boolean; }
+const { anlass, vergangen = false } = Astro.props;
+const a = anlass.data;
+const tz = { timeZone: 'Europe/Zurich' } as const;
+const tagZahl = new Intl.DateTimeFormat('de-CH', { day: 'numeric', ...tz }).format(a.datum);
+const monat = new Intl.DateTimeFormat('de-CH', { month: 'short', ...tz }).format(a.datum).replace('.', '');
+const wochentag = new Intl.DateTimeFormat('de-CH', { weekday: 'long', ...tz }).format(a.datum);
+const jahr = a.datum.getUTCFullYear();
+const zeit = a.zeit_von ? `${a.zeit_von.replace(':', '.')}${a.zeit_bis ? `–${a.zeit_bis.replace(':', '.')}` : ''} Uhr` : null;
+---
+<article class:list={['anlass karte karte--link', { 'anlass--vergangen': vergangen }]}>
+  <div class="anlass__datum" aria-hidden="true">
+    <span class="anlass__tag">{tagZahl}</span>
+    <span class="anlass__monat">{monat}</span>
+    <span class="anlass__jahr">{jahr}</span>
+  </div>
+  <div class="karte__inhalt">
+    <p class="karte__meta">
+      <time datetime={a.datum.toISOString().slice(0, 10)}>{wochentag}, {tagZahl}. {monat} {jahr}</time>
+      {zeit && <> · {zeit}</>} · {a.ort}
+    </p>
+    <h3 class="karte__titel"><a href={`/anlaesse/${anlass.id}/`}>{a.titel}</a></h3>
+    <p>{a.kurz}</p>
+    {!vergangen && a.anmeldung && <p class="anlass__hinweis">Online-Anmeldung möglich</p>}
+  </div>
+</article>
+
+<style>
+  .anlass { flex-direction: row; }
+  .anlass__datum {
+    flex: none;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    width: clamp(4.25rem, 3.5rem + 3vw, 5.5rem);
+    background: var(--igd-rot);
+    color: var(--igd-weiss);
+    line-height: 1.05;
+    padding: 1rem 0.5rem;
+  }
+  .anlass--vergangen .anlass__datum { background: var(--igd-grau); }
+  .anlass__tag { font-size: 2.1rem; font-weight: 800; }
+  .anlass__monat { font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.95rem; }
+  .anlass__jahr { font-size: 0.85rem; opacity: 0.9; margin-top: 0.2rem; }
+  .anlass__hinweis { font-size: 0.9375rem; font-weight: 600; color: #2E7D4F; }
+  .anlass__hinweis::before { content: '✓ '; }
+</style>

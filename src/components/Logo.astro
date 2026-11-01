@@ -1,0 +1,47 @@
+---
+/**
+ * Logo IG Diessbach als Vektor (SVG), nachgezeichnet aus IGD_Logo_www.jpg.
+ * - variante "zeichen": nur das IG-Zeichen (für Header, Favicon)
+ * - variante "voll": Zeichen mit Schriftzug DIESSBACH
+ * - ton "weiss" / "dunkel": einfarbig (Standard auf der Website, Briefing 5.3)
+ * - ton "farbe": Originalfarben, nur auf weissem Hintergrund
+ */
+interface Props {
+  variante?: 'zeichen' | 'voll';
+  ton?: 'weiss' | 'dunkel' | 'farbe';
+  class?: string;
+  titel?: string;
+}
+const { variante = 'zeichen', ton = 'dunkel', class: klasse, titel = 'IG Diessbach' } = Astro.props;
+
+const zeichenFarbe = ton === 'weiss' ? '#FFFFFF' : ton === 'farbe' ? '#000000' : '#1F2523';
+const schriftFarbe = ton === 'farbe' ? '#2541C4' : zeichenFarbe;
+const viewBox = variante === 'voll' ? '130 40 1565 1290' : '130 45 1082 1283';
+---
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox={viewBox}
+  class={klasse}
+  role="img"
+  aria-label={titel}
+>
+  <g fill={zeichenFarbe}>
+    <!-- G: Ring mit Öffnung oben rechts -->
+    <path d="M1048.3 206.7 A535 535 0 1 0 1062 949.1 L1005 790 A392.7 392.7 0 1 1 945.8 309.2 Z" />
+    <!-- G: Querbalken und senkrechter Abschluss -->
+    <path d="M778 700 L1207 587 L1207 1123 L1062 1123 L1062 949.1 L1005 790 L778 850 Z" />
+    <!-- I: senkrechter Balken -->
+    <rect x="563" y="447" width="215" height="876" />
+  </g>
+  {variante === 'voll' && (
+    <text
+      x="878" y="500"
+      fill={schriftFarbe}
+      font-family="'Fira Sans', Arial, sans-serif"
+      font-weight="800"
+      font-size="132"
+      textLength="810"
+      lengthAdjust="spacingAndGlyphs"
+    >DIESSBACH</text>
+  )}
+</svg>

@@ -1,0 +1,67 @@
+# Netlify-Konfiguration – wird beim Verbinden des GitHub-Repos automatisch gelesen.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Sicherheits-Header
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Weiterleitungen von den alten Jimdo-Adressen (Briefing Kap. 9.4)
+[[redirects]]
+  from = "/portrait/"
+  to = "/wer-wir-sind/"
+  status = 301
+[[redirects]]
+  from = "/portrait"
+  to = "/wer-wir-sind/"
+  status = 301
+[[redirects]]
+  from = "/portrait/organisation/*"
+  to = "/koepfe/"
+  status = 301
+[[redirects]]
+  from = "/portrait/statuten/*"
+  to = "/wer-wir-sind/#statuten"
+  status = 301
+[[redirects]]
+  from = "/archiv/*"
+  to = "/wer-wir-sind/chronik/"
+  status = 301
+[[redirects]]
+  from = "/archiv"
+  to = "/wer-wir-sind/chronik/"
+  status = 301
+[[redirects]]
+  from = "/gästebuch/*"
+  to = "/mitmachen/"
+  status = 301
+[[redirects]]
+  from = "/g%C3%A4stebuch/*"
+  to = "/mitmachen/"
+  status = 301
+[[redirects]]
+  from = "/about/*"
+  to = "/impressum/"
+  status = 301
+[[redirects]]
+  from = "/j/privacy"
+  to = "/datenschutz/"
+  status = 301
+[[redirects]]
+  from = "/sitemap/*"
+  to = "/sitemap-index.xml"
+  status = 301

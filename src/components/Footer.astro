@@ -1,0 +1,88 @@
+---
+import Logo from './Logo.astro';
+import { NAV, SITE } from '../lib/site';
+const jahr = new Date().getFullYear();
+---
+<footer class="fuss">
+  <div class="fuss__band" aria-hidden="true"></div>
+  <div class="container fuss__raster">
+    <div class="fuss__marke">
+      <Logo variante="voll" ton="weiss" class="fuss__logo" />
+      <p class="fuss__claim">{SITE.claim}</p>
+    </div>
+
+    <div>
+      <h2 class="fuss__titel">Kontakt</h2>
+      <address>
+        {SITE.langname}<br />
+        {SITE.adresse.zusatz}<br />
+        {SITE.adresse.strasse}<br />
+        {SITE.adresse.ort}
+      </address>
+      <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+    </div>
+
+    <nav aria-label="Fusszeile">
+      <h2 class="fuss__titel">Seiten</h2>
+      <ul>
+        {NAV.map((p) => <li><a href={p.href}>{p.label}</a></li>)}
+        <li><a href="/kontakt/">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <h2 class="fuss__titel">Mitmachen</h2>
+      <p>Werden Sie Mitglied und gestalten Sie Diessbach mit.</p>
+      <a href="/mitmachen/" class="knopf knopf--primaer knopf--klein">Mitglied werden</a>
+    </div>
+  </div>
+  <div class="container fuss__unten">
+    <p>© {jahr} {SITE.langname}</p>
+    <ul>
+      <li><a href="/impressum/">Impressum</a></li>
+      <li><a href="/datenschutz/">Datenschutz</a></li>
+    </ul>
+  </div>
+</footer>
+
+<style>
+  .fuss { background: var(--igd-anthrazit); color: #D7DBD9; font-size: var(--fs-klein); margin-top: 0; }
+  .fuss a { color: var(--igd-weiss); }
+  .fuss__band {
+    height: 2.5rem;
+    background: var(--igd-rot);
+    clip-path: polygon(0 55%, 100% 0, 100% 45%, 0 100%);
+    transform: translateY(-1px);
+    margin-bottom: 1.5rem;
+  }
+  .fuss__raster {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+    padding-block: 1.5rem 2.5rem;
+  }
+  .fuss__marke :global(.fuss__logo) { width: 11rem; margin-bottom: 1rem; }
+  .fuss__claim { font-weight: 800; color: var(--igd-weiss); font-size: 1.1rem; }
+  .fuss__titel {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--igd-weiss);
+    margin-bottom: 0.9rem;
+  }
+  address { font-style: normal; margin-bottom: 0.75rem; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li + li { margin-top: 0.4rem; }
+  .fuss__unten {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+    padding-block: 1.25rem;
+    border-top: 1px solid rgb(255 255 255 / 0.12);
+    font-size: 0.9375rem;
+  }
+  .fuss__unten p { margin: 0; }
+  .fuss__unten ul { display: flex; gap: 1.25rem; }
+  .fuss__unten li + li { margin-top: 0; }
+</style>

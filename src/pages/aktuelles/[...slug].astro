@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Teilen from '../../components/Teilen.astro';
+import { beitraege } from '../../lib/inhalte';
+import { datumLang } from '../../lib/site';
+
+export async function getStaticPaths() {
+  return (await beitraege()).map((b) => ({ params: { slug: b.id }, props: { beitrag: b } }));
+}
+const { beitrag } = Astro.props;
+const b = beitrag.data;
+const { Content } = await render(beitrag);
+---
+<Base titel={b.titel} beschreibung={b.lead}>
+  <article class="section">
+    <div class="container">
+      <p class="dachzeile"><a href="/aktuelles/">Aktuelles</a> · <time datetime={b.datum.toISOString().slice(0, 10)}>{datumLang(b.datum)}</time></p>
+      <h1 class="text-breite">{b.titel}</h1>
+      <p class="lead text-breite">{b.lead}</p>
+      {b.bild && <Image src={b.bild} alt={b.bild_alt ?? ''} widths={[640, 1080, 1600]} sizes="(min-width: 72rem) 1152px, 100vw" class="beitrag__bild" loading="eager" />}
+      <div class="prose"><Content /></div>
+      {b.pdf && <p><a href={b.pdf} class="knopf knopf--sekundaer">PDF herunterladen</a></p>}
+      <Teilen titel={b.titel} />
+    </div>
+  </article>
+</Base>
+<style>
+  .dachzeile a { color: inherit; }
+  :global(.beitrag__bild) { width: 100%; border-radius: var(--radius); margin-block: 1.5rem 2rem; }
+</style>

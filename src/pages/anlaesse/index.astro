@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import Seitenkopf from '../../components/Seitenkopf.astro';
+import AnlassKarte from '../../components/AnlassKarte.astro';
+import { anlaesse } from '../../lib/inhalte';
+const { kommend, vergangen } = await anlaesse();
+---
+<Base titel="Anlässe" beschreibung="Kommende Anlässe der IG Diessbach mit Online-Anmeldung – und Rückblicke auf vergangene Anlässe.">
+  <Seitenkopf dachzeile="Anlässe" titel="Anlässe für ganz Diessbach" lead="Mehrmals im Jahr laden wir die ganze Bevölkerung ein – zu Ausflügen, Diskussionen und gemütlichem Beisammensein." />
+  <section class="section">
+    <div class="container">
+      <h2>Kommende Anlässe</h2>
+      {kommend.length ? (
+        <div class="raster" style="--min: 22rem">{kommend.map((a) => <AnlassKarte anlass={a} />)}</div>
+      ) : <p>Zurzeit sind keine Anlässe geplant.</p>}
+    </div>
+  </section>
+  {vergangen.length > 0 && (
+    <section class="section section--hell">
+      <div class="container">
+        <h2>Rückblicke</h2>
+        <div class="raster" style="--min: 22rem">{vergangen.map((a) => <AnlassKarte anlass={a} vergangen />)}</div>
+      </div>
+    </section>
+  )}
+</Base>

@@ -1,0 +1,20 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { datumLang } from '../lib/site';
+interface Props { beitrag: CollectionEntry<'aktuelles'>; }
+const { beitrag } = Astro.props;
+const b = beitrag.data;
+---
+<article class="karte karte--link">
+  {b.bild && <Image src={b.bild} alt="" widths={[400, 800]} sizes="(min-width: 64rem) 380px, 100vw" class="beitrag__bild" />}
+  <div class="karte__inhalt">
+    <p class="karte__meta"><time datetime={b.datum.toISOString().slice(0, 10)}>{datumLang(b.datum)}</time></p>
+    <h3 class="karte__titel"><a href={`/aktuelles/${beitrag.id}/`}>{b.titel}</a></h3>
+    <p>{b.lead}</p>
+    <p class="weiter" aria-hidden="true">Weiterlesen →</p>
+  </div>
+</article>
+<style>
+  .karte :global(.beitrag__bild) { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+</style>

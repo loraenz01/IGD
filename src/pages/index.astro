@@ -1,0 +1,194 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Logo from '../components/Logo.astro';
+import AnlassKarte from '../components/AnlassKarte.astro';
+import BeitragKarte from '../components/BeitragKarte.astro';
+import gruppenfoto from '../assets/kampagne/gruppenfoto-kampagne-2026.jpg';
+import { anlaesse, beitraege, versammlungen } from '../lib/inhalte';
+import { SITE, datumLang } from '../lib/site';
+import { WERTE } from '../lib/werte';
+
+const { kommend } = await anlaesse();
+const naechsterAnlass = kommend[0];
+const { naechste: gv } = await versammlungen();
+const neueste = (await beitraege()).slice(0, 3);
+
+// Danke-Block nur bis Ende Februar 2027 anzeigen (Briefing 7.1)
+const zeigeDanke = new Date() < new Date('2027-03-01');
+---
+<Base>
+  <!-- 1. Hero -->
+  <section class="hero">
+    <div class="container hero__innen">
+      <Logo variante="voll" ton="weiss" class="hero__logo" />
+      <div class="hero__text">
+        <p class="dachzeile">Interessengemeinschaft Diessbach</p>
+        <h1>{SITE.claim}</h1>
+        <p class="lead">Seit 20 Jahren setzen wir uns für Diessbach ein.</p>
+        <div class="knopf-reihe">
+          <a href="/mitmachen/#mitglied" class="knopf knopf--primaer">Mitglied werden</a>
+          <a href="/mitmachen/#anliegen" class="knopf knopf--hell">Ihr Anliegen</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero__band" aria-hidden="true"></div>
+  </section>
+
+  <!-- 2. Danke Wahlen 2026 -->
+  {zeigeDanke && (
+    <section class="section danke">
+      <div class="container danke__raster">
+        <Image
+          src={gruppenfoto}
+          alt="Die Kandidierenden der IG Diessbach für die Gemeindewahlen 2026 – elf Personen vor einer Steinmauer im Grünen"
+          widths={[560, 1080]}
+          sizes="(min-width: 64rem) 560px, 100vw"
+          class="danke__bild"
+          loading="eager"
+        />
+        <div>
+          <p class="dachzeile">Gemeindewahlen 25. Oktober 2026</p>
+          <h2>Danke für Ihr Vertrauen</h2>
+          <p>8 von 9 Kandidierenden der IG Diessbach wurden gewählt. Ab 2027 vertreten wir Sie in den Behörden:</p>
+          <ul class="resultat">
+            <li><strong>3</strong> <span>Sitze im Gemeinderat</span></li>
+            <li><strong>3</strong> <span>Sitze in der PBBK</span></li>
+            <li><strong>2</strong> <span>Sitze in der Bildungs&shy;kommission</span></li>
+          </ul>
+          <a href="/koepfe/" class="knopf knopf--sekundaer">Unsere Köpfe kennenlernen</a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- 3. + 4. Nächster Anlass und nächste Gemeindeversammlung -->
+  <section class="section section--hell">
+    <div class="container termine">
+      <div>
+        <h2>Nächster Anlass</h2>
+        {naechsterAnlass ? (
+          <AnlassKarte anlass={naechsterAnlass} />
+        ) : (
+          <p>Zurzeit sind keine Anlässe geplant. Schauen Sie bald wieder vorbei.</p>
+        )}
+        <p class="termine__mehr"><a href="/anlaesse/">Alle Anlässe und Rückblicke</a></p>
+      </div>
+      <div>
+        <h2>Nächste Gemeinde&shy;versammlung</h2>
+        {gv ? (
+          <article class="karte karte--link gv">
+            <div class="karte__inhalt">
+              <p class="karte__meta">{datumLang(gv.data.datum)}{gv.data.zeit && ` · ${gv.data.zeit.replace(':', '.')} Uhr`}</p>
+              <h3 class="karte__titel"><a href={`/gemeindeversammlung/${gv.id}/`}>Gemeindeversammlung verständlich erklärt</a></h3>
+              <p>Worum geht es, was kostet es – und was empfehlen wir? Alle Traktanden in einfacher Sprache.</p>
+              <p class="weiter" aria-hidden="true">Zu den Empfehlungen →</p>
+            </div>
+          </article>
+        ) : (
+          <p>Das Datum der nächsten Versammlung folgt.</p>
+        )}
+        <p class="termine__mehr"><a href="/gemeindeversammlung/">So funktioniert die Gemeindeversammlung</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Neueste Beiträge -->
+  {neueste.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <h2>Aktuelles</h2>
+        <div class="raster" style="--min: 19rem">
+          {neueste.map((b) => <BeitragKarte beitrag={b} />)}
+        </div>
+        <p class="termine__mehr"><a href="/aktuelles/">Alle Beiträge</a></p>
+      </div>
+    </section>
+  )}
+
+  <!-- 6. Werte -->
+  <section class="section section--dunkel">
+    <div class="container">
+      <p class="dachzeile">Wofür wir stehen</p>
+      <h2>Unsere Werte</h2>
+      <ul class="werte raster" style="--min: 12.5rem">
+        {WERTE.map((w, i) => (
+          <li class="wert">
+            <span class="wert__nr" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{w.titel}</h3>
+            <p>{w.text}</p>
+          </li>
+        ))}
+      </ul>
+      <p><a href="/wer-wir-sind/" class="knopf knopf--hell">Mehr über die IG Diessbach</a></p>
+    </div>
+  </section>
+
+  <!-- 7. WhatsApp -->
+  <section class="section whatsapp">
+    <div class="container whatsapp__innen">
+      <div>
+        <h2>Immer auf dem Laufenden</h2>
+        <p>Folgen Sie unserem WhatsApp-Kanal und erfahren Sie zuerst von Anlässen und Empfehlungen zur Gemeindeversammlung.</p>
+      </div>
+      {SITE.whatsappKanal ? (
+        <a href={SITE.whatsappKanal} class="knopf knopf--primaer" rel="noopener">WhatsApp-Kanal folgen</a>
+      ) : (
+        <p class="platzhalter">Link zum WhatsApp-Kanal folgt (offener Punkt 11).</p>
+      )}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    position: relative;
+    background: var(--igd-anthrazit);
+    color: var(--igd-weiss);
+    overflow: hidden;
+  }
+  .hero__innen {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+    padding-block: clamp(2.5rem, 1.5rem + 5vw, 6rem) 1rem;
+  }
+  .hero :global(.hero__logo) { width: clamp(9rem, 6rem + 14vw, 20rem); }
+  .hero h1 { margin-bottom: 0.3em; }
+  .hero .dachzeile { color: #F08A73; }
+  .hero .lead { color: #D7DBD9; margin-bottom: 1.75rem; }
+  .hero__band {
+    height: clamp(3.5rem, 2rem + 5vw, 7rem);
+    margin-top: clamp(1.5rem, 1rem + 3vw, 3.5rem);
+    background: var(--igd-rot);
+    clip-path: polygon(0 55%, 100% 0, 100% 40%, 0 100%);
+  }
+  @media (min-width: 52rem) {
+    .hero__innen { grid-template-columns: auto 1fr; gap: clamp(2rem, 1rem + 4vw, 5rem); }
+  }
+
+  .danke__raster { display: grid; gap: 2rem; align-items: center; }
+  .danke :global(.danke__bild) { width: 100%; border-radius: var(--radius); box-shadow: var(--schatten); }
+  @media (min-width: 56rem) { .danke__raster { grid-template-columns: 1.15fr 1fr; gap: 3rem; } }
+
+  .resultat { list-style: none; padding: 0; margin: 1.25rem 0 1.75rem; display: grid; gap: 0.75rem; grid-template-columns: repeat(3, 1fr); }
+  .resultat li { display: flex; flex-direction: column; border-top: 4px solid var(--igd-rot); padding-top: 0.5rem; line-height: 1.25; font-size: 0.9375rem; }
+  .resultat strong { font-size: 2.5rem; font-weight: 800; line-height: 1.1; color: var(--igd-rot); }
+
+  .termine { display: grid; gap: 3rem; }
+  @media (min-width: 56rem) { .termine { grid-template-columns: 1fr 1fr; } }
+  .termine h2 { font-size: var(--fs-h3); }
+  .termine__mehr { margin-top: 1rem; font-weight: 600; }
+  .gv { border-top: 6px solid var(--igd-rot); }
+
+  .werte { list-style: none; padding: 0; margin: 2rem 0 2.5rem; }
+  .wert { border-top: 2px solid rgb(255 255 255 / 0.25); padding-top: 1rem; }
+  .wert__nr { display: block; font-weight: 800; color: #F08A73; margin-bottom: 0.25rem; }
+  .wert h3 { font-size: 1.2rem; margin-bottom: 0.4em; }
+  .wert p { color: #D7DBD9; font-size: var(--fs-klein); margin: 0; }
+
+  .whatsapp__innen { display: grid; gap: 1.5rem; align-items: center; }
+  .whatsapp h2 { font-size: var(--fs-h3); }
+  .whatsapp p { margin: 0; }
+  @media (min-width: 52rem) { .whatsapp__innen { grid-template-columns: 1fr auto; } }
+</style>
