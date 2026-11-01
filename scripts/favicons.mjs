@@ -7,9 +7,9 @@ const zeichen = `
   <path d="M778 700 L1207 587 L1207 1123 L1062 1123 L1062 949.1 L1005 790 L778 850 Z"/>
   <rect x="563" y="447" width="215" height="876"/>`;
 
-// Quadratische Fläche in Wappenrot, Zeichen weiss, mit Innenabstand
+// Quadratische Fläche in Logo-Blau, Zeichen weiss, mit Innenabstand
 const svg = (radius) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1600">
-  <rect width="1600" height="1600" rx="${radius}" fill="#B73518"/>
+  <rect width="1600" height="1600" rx="${radius}" fill="#2541C4"/>
   <g fill="#FFFFFF" transform="translate(800 800) scale(0.92) translate(-671 -686)">${zeichen}</g>
 </svg>`;
 

@@ -155,12 +155,12 @@ const zeigeDanke = new Date() < new Date('2027-03-01');
   }
   .hero :global(.hero__logo) { width: clamp(9rem, 6rem + 14vw, 20rem); }
   .hero h1 { margin-bottom: 0.3em; }
-  .hero .dachzeile { color: #F08A73; }
+  .hero .dachzeile { color: var(--igd-akzent-dunkelgrund); }
   .hero .lead { color: #D7DBD9; margin-bottom: 1.75rem; }
   .hero__band {
     height: clamp(3.5rem, 2rem + 5vw, 7rem);
     margin-top: clamp(1.5rem, 1rem + 3vw, 3.5rem);
-    background: var(--igd-rot);
+    background: var(--igd-primaer);
     clip-path: polygon(0 55%, 100% 0, 100% 40%, 0 100%);
   }
   @media (min-width: 52rem) {
@@ -172,18 +172,18 @@ const zeigeDanke = new Date() < new Date('2027-03-01');
   @media (min-width: 56rem) { .danke__raster { grid-template-columns: 1.15fr 1fr; gap: 3rem; } }
 
   .resultat { list-style: none; padding: 0; margin: 1.25rem 0 1.75rem; display: grid; gap: 0.75rem; grid-template-columns: repeat(3, 1fr); }
-  .resultat li { display: flex; flex-direction: column; border-top: 4px solid var(--igd-rot); padding-top: 0.5rem; line-height: 1.25; font-size: 0.9375rem; }
-  .resultat strong { font-size: 2.5rem; font-weight: 800; line-height: 1.1; color: var(--igd-rot); }
+  .resultat li { display: flex; flex-direction: column; border-top: 4px solid var(--igd-primaer); padding-top: 0.5rem; line-height: 1.25; font-size: 0.9375rem; }
+  .resultat strong { font-size: 2.5rem; font-weight: 800; line-height: 1.1; color: var(--igd-primaer); }
 
   .termine { display: grid; gap: 3rem; }
   @media (min-width: 56rem) { .termine { grid-template-columns: 1fr 1fr; } }
   .termine h2 { font-size: var(--fs-h3); }
   .termine__mehr { margin-top: 1rem; font-weight: 600; }
-  .gv { border-top: 6px solid var(--igd-rot); }
+  .gv { border-top: 6px solid var(--igd-primaer); }
 
   .werte { list-style: none; padding: 0; margin: 2rem 0 2.5rem; }
   .wert { border-top: 2px solid rgb(255 255 255 / 0.25); padding-top: 1rem; }
-  .wert__nr { display: block; font-weight: 800; color: #F08A73; margin-bottom: 0.25rem; }
+  .wert__nr { display: block; font-weight: 800; color: var(--igd-akzent-dunkelgrund); margin-bottom: 0.25rem; }
   .wert h3 { font-size: 1.2rem; margin-bottom: 0.4em; }
   .wert p { color: #D7DBD9; font-size: var(--fs-klein); margin: 0; }
 
