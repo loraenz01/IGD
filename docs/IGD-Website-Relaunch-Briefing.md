@@ -356,7 +356,7 @@ Lorenz jeden dieser Schritte in einfachen Worten erklären und Zugangsdaten **ni
 - **Zugang:** Das Jimdo-Konto ist dem Vorstand (Präsidium) zugänglich. Die Rechnungen gehen an den Verein. Als Vertragspartner ist noch eine frühere Person bzw. Firma eingetragen → auf den Verein ändern.
 - **Laufzeit:** Jimdo Creator Pro ist **bezahlt bis 9.7.2027**. Es ist keine Zahlungsmethode hinterlegt, also gibt es keine automatische Verlängerung.
 - **Domain:** igdiessbach.ch ist über Jimdo registriert (Registrar InterNetX, seit 9.7.2010). Die Nameserver ns13/ns14.jimdo.com werden bei Jimdo verwaltet. Für den Umzug braucht es einen **Auth-Code** von Jimdo.
-- **E-Mail:** Die MX-Einträge zeigen auf mx1/mx2.jimdo.com, gebucht als Zusatzprodukt «Creator Email Account». Mindestens ein Postfach @igdiessbach.ch existiert, welche Adresse(n) ist noch zu klären. SPF-Eintrag: sendgrid.net und emailsrvr.com.
+- **E-Mail:** Die MX-Einträge zeigen auf mx1/mx2.jimdo.com, gebucht als Zusatzprodukt «Creator Email Account». Geprüft am 3.11.2026: **keine Postfächer und keine Weiterleitungen** vorhanden. Neu eingerichtet: Weiterleitung info@igdiessbach.ch an ein Vorstandsmitglied (getestet). Beim Umzug gibt es keine Mails zu sichern, nur die Weiterleitung beim neuen Anbieter neu anlegen. SPF-Eintrag: sendgrid.net und emailsrvr.com.
 - **Reihenfolge:** zuerst die Domain umziehen und die E-Mail umstellen, **dann** Jimdo kündigen (vor dem 9.7.2027, Kündigungsfrist im Konto prüfen). Die Funktion «Website transferieren» in Jimdo wird **nicht** gebraucht.
 - **Kosten:** Mit der neuen Lösung (Netlify gratis, dazu Domain und E-Mail bei einem CH-Anbieter) sinken die laufenden Kosten deutlich.
 
