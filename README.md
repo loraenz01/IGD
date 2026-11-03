@@ -71,6 +71,12 @@ Hilfsskripte:
 - [ ] Impressum und Datenschutz vom Vorstand prüfen lassen
 - [ ] Funktionsadressen info@ / praesidium@ / anlaesse@ einrichten
 - [ ] Antwortfrist bei «Ihr Anliegen» (Vorschlag: innert zwei Wochen) bestätigen
+- [ ] Jimdo: Vertragspartner auf den Verein ändern («Vertragsdaten ändern»), vorher den bisherigen Vertragspartner informieren
+- [ ] Jimdo: herausfinden, welche E-Mail-Adresse(n) @igdiessbach.ch im «Creator Email Account» bestehen und wer sie nutzt
+- [ ] Jimdo: Kündigungsfrist prüfen (Vertrag bezahlt bis 9.7.2027) – **nichts kündigen, keine Zahlungsmethode hinterlegen**
+- [ ] April 2027: Anbieter für Domain und E-Mail wählen (z.B. Infomaniak/Hostpoint), Funktionsadressen einrichten
+- [ ] April 2027: Auth-Code bei Jimdo anfordern, Domain umziehen; danach Mails sichern und E-Mail umstellen
+- [ ] Nach dem Go-live und den Tests: Jimdo-Vertrag fristgerecht vor dem 9.7.2027 kündigen
 - [ ] Vor dem Go-live: GitHub-Projekt in ein Vereinskonto verschieben
 - [ ] Beim Go-live: Michaela und Helena für das Pflege-Programm freischalten (GitHub-Konto erstellen, als Collaborator einladen, Einladung annehmen)
 - [ ] Beim Go-live: E-Mail-Benachrichtigung der Formulare von Lorenz auf die Funktionsadressen umstellen
