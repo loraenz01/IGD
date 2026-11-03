@@ -73,11 +73,12 @@ Hilfsskripte:
 - [ ] Antwortfrist bei «Ihr Anliegen» (Vorschlag: innert zwei Wochen) bestätigen
 - [x] Jimdo: Empfänger des alten Kontaktformulars auf info@igdiessbach.ch umgestellt (3.11.2026)
 - [ ] Jimdo: Vertragspartner auf den Verein geändert – **schriftliche Bestätigung beider Seiten ausstehend**
-- [ ] Jimdo: prüfen, wer **Admin-C** der Domain ist (an diese E-Mail schickt Jimdo den AuthInfo-Code!) und auf eine Vereinsadresse ändern
+- [ ] Jimdo: Domains → igdiessbach.ch → **«Domain-Kontaktdaten bearbeiten»**: Inhaber auf den Verein ändern, E-Mail = verlässliche Adresse **ausserhalb** von igdiessbach.ch (dorthin geht der Transfercode)
 - [x] Jimdo: E-Mail geprüft (3.11.2026) – keine Postfächer, keine Weiterleitungen vorhanden. Neu eingerichtet und getestet: Weiterleitung **info@igdiessbach.ch → Lorenz**
 - [x] Jimdo: Kündigung geprüft – möglich «zum Ende der Vertragslaufzeit 09.07.2027». **Jetzt noch nicht kündigen, keine Zahlungsmethode hinterlegen.**
 - [ ] April 2027: Anbieter für Domain und E-Mail wählen (z.B. Infomaniak/Hostpoint), Funktionsadressen einrichten – **Weiterleitung info@ identisch übernehmen**
-- [ ] April 2027: Jimdo kündigen per 09.07.2027 **mit Option «Domain zu anderem Anbieter transferieren»** (NICHT «Domain löschen» – ist vorausgewählt!). AuthInfo-Code kommt an Admin-C. Domain beim neuen Anbieter übernehmen, DNS dort zuerst weiter auf Jimdo zeigen lassen, Weiterleitung info@ vorher anlegen
+- [ ] April 2027: beim neuen Anbieter Weiterleitung info@ anlegen, dann in Jimdo «Transfercode anfordern» und Domain übernehmen; DNS zuerst weiter auf Jimdo zeigen lassen
+- [ ] Bis spätestens Juni 2027: Jimdo-Paket per 09.07.2027 kündigen – **niemals «Domain löschen» wählen** (auf der Kündigungsseite vorausgewählt)
 - [ ] 13.5.2027: DNS beim neuen Anbieter auf Netlify umstellen (Go-live); Jimdo-Seite läuft bis 9.7.2027 aus
 - [ ] Vor dem Go-live: GitHub-Projekt in ein Vereinskonto verschieben
 - [ ] Beim Go-live: Michaela und Helena für das Pflege-Programm freischalten (GitHub-Konto erstellen, als Collaborator einladen, Einladung annehmen)
