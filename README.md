@@ -71,10 +71,11 @@ Hilfsskripte:
 - [ ] Impressum und Datenschutz vom Vorstand prüfen lassen
 - [ ] Funktionsadressen info@ / praesidium@ / anlaesse@ einrichten
 - [ ] Antwortfrist bei «Ihr Anliegen» (Vorschlag: innert zwei Wochen) bestätigen
+- [ ] Jimdo: Empfänger des alten Kontaktformulars auf Präsidium umstellen (heute: frühere, unbestätigte Adresse)
 - [ ] Jimdo: Vertragspartner auf den Verein ändern («Vertragsdaten ändern»), vorher den bisherigen Vertragspartner informieren
-- [ ] Jimdo: herausfinden, welche E-Mail-Adresse(n) @igdiessbach.ch im «Creator Email Account» bestehen und wer sie nutzt
+- [x] Jimdo: E-Mail geprüft (3.11.2026) – keine Postfächer, keine Weiterleitungen vorhanden. Neu eingerichtet und getestet: Weiterleitung **info@igdiessbach.ch → Lorenz**
 - [ ] Jimdo: Kündigungsfrist prüfen (Vertrag bezahlt bis 9.7.2027) – **nichts kündigen, keine Zahlungsmethode hinterlegen**
-- [ ] April 2027: Anbieter für Domain und E-Mail wählen (z.B. Infomaniak/Hostpoint), Funktionsadressen einrichten
+- [ ] April 2027: Anbieter für Domain und E-Mail wählen (z.B. Infomaniak/Hostpoint), Funktionsadressen einrichten – **Weiterleitung info@ identisch übernehmen**
 - [ ] April 2027: Auth-Code bei Jimdo anfordern, Domain umziehen; danach Mails sichern und E-Mail umstellen
 - [ ] Nach dem Go-live und den Tests: Jimdo-Vertrag fristgerecht vor dem 9.7.2027 kündigen
 - [ ] Vor dem Go-live: GitHub-Projekt in ein Vereinskonto verschieben
