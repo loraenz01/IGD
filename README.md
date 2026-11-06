@@ -72,9 +72,9 @@ Hilfsskripte:
 - [ ] Funktionsadressen info@ / praesidium@ / anlaesse@ einrichten
 - [ ] Antwortfrist bei «Ihr Anliegen» (Vorschlag: innert zwei Wochen) bestätigen
 - [x] Jimdo: Empfänger des alten Kontaktformulars auf info@igdiessbach.ch umgestellt (3.11.2026)
-- [ ] Jimdo: Vertragspartner auf den Verein geändert – **schriftliche Bestätigung beider Seiten ausstehend**
-- [ ] ⚠️ **Dringend:** Domain-Inhaber ist noch der frühere Betreuer (Firma). Die hinterlegte Kontakt-E-Mail ist ungültig (ihre Domain existiert nicht mehr), die Telefonnummer ist ein Platzhalter. Zustimmung zum Inhaberwechsel und Wechsel des Vertragsinhabers am 3.11.2026 angefragt – **Antwort ausstehend**
-- [ ] Nach der Zustimmung: Jimdo → Domains → igdiessbach.ch → **«Domain-Kontaktdaten bearbeiten»**: Inhaber = Verein, echte Telefonnummer, E-Mail = verlässliche Adresse **ausserhalb** von igdiessbach.ch (dorthin geht der Transfercode); Bestätigungsmail der Registrierungsstelle bestätigen
+- [ ] Jimdo: Vertragspartner auf den Verein geändert – bisheriger Inhaber hat unterschrieben; **Unterschrift Verein + Bestätigung durch Jimdo ausstehend**
+- [ ] ⚠️ **Dringend:** Domain-Inhaber ist noch der frühere Betreuer (Firma). Die hinterlegte Kontakt-E-Mail ist ungültig (ihre Domain existiert nicht mehr), die Telefonnummer ist ein Platzhalter. Zustimmung des bisherigen Inhabers liegt schriftlich vor (4.11.2026, Formular «Änderung des Vertragsinhabers» inkl. Domains). **Offen:** Unterschrift des Vereins und Versand an Jimdo (billing@jimdo.de); Original bei den Vereinsunterlagen, nicht im Repo
+- [ ] Jetzt möglich: Jimdo → Domains → igdiessbach.ch → **«Domain-Kontaktdaten bearbeiten»**: Inhaber = Verein, echte Telefonnummer, E-Mail = verlässliche Adresse **ausserhalb** von igdiessbach.ch (dorthin geht der Transfercode); Bestätigungsmail der Registrierungsstelle bestätigen
 - [x] Jimdo: E-Mail geprüft (3.11.2026) – keine Postfächer, keine Weiterleitungen vorhanden. Neu eingerichtet und getestet: Weiterleitung **info@igdiessbach.ch → Lorenz**
 - [x] Jimdo: Kündigung geprüft – möglich «zum Ende der Vertragslaufzeit 09.07.2027». **Jetzt noch nicht kündigen, keine Zahlungsmethode hinterlegen.**
 - [ ] April 2027: Anbieter für Domain und E-Mail wählen (z.B. Infomaniak/Hostpoint), Funktionsadressen einrichten – **Weiterleitung info@ identisch übernehmen**
